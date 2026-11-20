@@ -11,13 +11,13 @@
     <div class="header-box">
         <div class="header-title">
             <h2>RELS 398.10 / ENGL 398.10 &middot; Digital Methods for Historical Documents</h2>
-            <h1>Instructor Teaching Plan: Meeting #31 (Lesson 12.1 &mdash; Drafting Scholarly Commentary by Hand)</h1>
+            <h1>Instructor Teaching Plan: Meeting #31 (Lesson 12.1 &mdash; Publication II: Assembling &amp; Launching Your GitHub Pages Edition)</h1>
             <div class="meta-badges">
                 <span class="badge">Date: Tuesday, November 24, 2026</span>
                 <span class="badge">Time: 8:30 &ndash; 9:20 AM (50 mins)</span>
                 <span class="badge">Room: MULH 3032</span>
-                <span class="badge">Context: Week 12 (Commentary) &middot; Meeting 1 of 3</span>
-                <span class="badge">Milestone: Manual Annotation, Stable Anchors, &amp; TEI Standoff Encoding</span>
+                <span class="badge">Context: Week 12 (Publication II &amp; Commentary) &middot; Meeting 1 of 3</span>
+                <span class="badge">Milestone: <code>docs/edition.xml</code> + Static Viewer Live on GitHub Pages</span>
             </div>
         </div>
     </div>
@@ -25,35 +25,25 @@
     <div class="context-banner">
         <div>
             <strong>PEDAGOGICAL ENTRY STATE AUDIT:</strong><br>
-            Students have aligned parallel translations and generated Leipzig glosses in Module 11. They are confident navigating two-column split editors in VS Code. However, they have never authored formal scholarly commentary notes or structured them as standoff XML. They need clear criteria for what justifies an explanatory note rather than subjective rambling.
+            Students completed Module 11 translation alignment using the static <code>alignment_viewer.html</code> and hold validated XML layers from earlier modules (header, facsimile, regularized text, entities/morphology, and translation). Ace Long (she/her) attends regularly with her 31 December 1791 Louis XVI address to the Assembl&eacute;e Nationale (<code>BL Zweig MS 169</code>); absent students (Andromeda Julian, Olyvia Kingston) follow the same instructions from this deck and Moodle. We prioritize live web publication over standalone commentary so every student sees her edition running publicly before end of term.
         </div>
         <div>
             <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
-            Each student selects a 5-sentence passage from their primary witness, establishes stable <code>xml:id</code> anchors, constructs a valid TEI <code>&lt;standOff&gt;</code> container, and hand-authors five rich commentary notes spanning philological, historical, and intertextual categories with precise <code>@target</code> pointers.
+            Copy <code>labs/edition_viewer/</code> into the repository's <code>docs/</code> folder, assemble or wire the facsimile image and regularized transcription (<code>edition.xml</code> or multi-file config), verify XML well-formedness (<code>xmllint --noout</code>), push to GitHub, and enable GitHub Pages so parallel image + switchable Diplomatic/Regularized views render live in the browser by 9:20 AM.
         </div>
     </div>
 
-    <div class="card">
-        <h4>Walk-in Music (plays as students arrive, before minute 0)</h4>
-        <ul>
-            <li><strong>Paul Simon, &ldquo;Rewrite&rdquo;</strong> (2011, Hear Music / Concord). A reflective song on revision, memory, narrative perspective, and illuminating the past.</li>
-            <li><strong>Pedagogical connection:</strong> Commentary gives historical voices context and clarity, allowing modern readers to perceive what historical authors took for granted.</li>
-            <li><strong>Springboard at minute 0:</strong> &ldquo;A transcription gives us the author's words, but historical context gives us their world. Today, we step into the shoes of the scholarly commentator, authoring notes that illuminate the linguistic, legal, and biographical world behind our witnesses.&rdquo;</li>
-        </ul>
-    </div>
-
     <div class="requirement-callout">
-        <h3>THE COMMENTARY DIRECTIVE: STRUCTURED STANDOFF ANNOTATION</h3>
-        <p>A digital edition is not an uncritical photocopy. By categorizing notes into philological, historical, and intertextual domains within a standoff <code>&lt;standOff&gt;</code> block, students transform raw transcriptions into durable, searchable scholarly editions.</p>
+        <h3>THE PUBLICATION-FIRST DIRECTIVE: ZERO-BUILD STATIC GITHUB PAGES</h3>
+        <p>Scholars and classmates should be able to read your edition from a URL with a single click—no Docker container, eXist-db server, or manual file downloads required. Placing one clean static shell (<code>index.html</code>, <code>edition.css</code>, <code>viewer.js</code>) beside your TEI files in <code>docs/</code> gives you a permanent, browser-native scholarly website on GitHub Pages.</p>
     </div>
 
     <div class="caution-callout">
         <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
-        <p><strong>1. Separate layers strictly:</strong> Keep the base transcription clean inside <code>&lt;body&gt;</code>; place all scholarly annotations inside <code>&lt;standOff&gt;</code>.<br>
-        <strong>2. Stable anchors only:</strong> Every note must point to an explicit anchor via <code>@target</code> (e.g. <code>target="#s1"</code> or <code>target="#w4"</code>). Never rely on character offsets or line numbers.<br>
-        <strong>3. The mandatory hash prefix:</strong> The hash symbol (<code>#</code>) is strictly required in all local <code>@target</code> values.<br>
-        <strong>4. Three core categories:</strong> Every note must specify <code>@type</code> as <code>philological</code>, <code>historical</code>, or <code>intertextual</code>.<br>
-        <strong>5. Tuesday ground truth baseline:</strong> Today's five hand-authored notes in <code>commentary_manual.xml</code> establish the gold standard used to audit Wednesday's authority matching and Friday's AI prompt generation.</p>
+        <p><strong>1. Valid XML before deploying:</strong> Run <code>xmllint --noout</code> on every edited XML file before pushing.<br>
+        <strong>2. Reversible <code>&lt;choice&gt;</code> markup:</strong> Keep both diplomatic (<code>&lt;orig&gt;</code>/<code>&lt;abbr&gt;</code>/<code>&lt;sic&gt;</code>) and reading forms (<code>&lt;reg&gt;</code>/<code>&lt;expan&gt;</code>/<code>&lt;corr&gt;</code>) intact inside <code>&lt;choice&gt;</code> so the switch button toggles faithfully.<br>
+        <strong>3. No glued words across line breaks:</strong> Check <code>&lt;lb/&gt;</code> boundaries in Regularized mode (space between words, hyphen joined when <code>break="no"</code>).<br>
+        <strong>4. Real paths only:</strong> Match <code>&lt;graphic url="..."/&gt;</code> exact filenames (e.g., <code>decree.jpg</code>) inside <code>docs/</code> so images never 404 on GitHub Pages.</p>
     </div>
 
     <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
@@ -69,53 +59,49 @@
         </thead>
         <tbody>
             <tr>
-                <td class="time-col">8:30 &ndash; 8:36<br>(6 mins)</td>
-                <td class="activity-col">Phase 1: Framing<br>The Epistemology of Commentary</td>
+                <td class="time-col">8:30 &ndash; 8:35<br>(5 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>Publication Over Commentary<br><em>Slides 1&ndash;3.</em></td>
                 <td class="desc-col">
-                    Welcome students. Contrast printed footnotes with digital linked commentary.<br>
-                    Introduce the three core categories: philological (words/grammar), historical (people/places/events), and intertextual (cited laws/treaties/artworks).
+                    Explain the revised Weeks 12&ndash;13 focus: putting the live parallel web edition (image + Diplomatic/Regularized transcription + synced translation) first, with 3 concise commentary popovers inside it.<br>
+                    Preview the <code>docs/</code> layout using <code>labs/edition_viewer/</code>.
                 </td>
-                <td class="target-col">Orientation to Topic 12; three-step cycle framing</td>
+                <td class="target-col">Two-week publication roadmap clear</td>
             </tr>
             <tr>
-                <td class="time-col">8:36 &ndash; 8:46<br>(10 mins)</td>
-                <td class="activity-col">Phase 2: Live Demo<br>TEI Standoff Shell in VS Code</td>
+                <td class="time-col">8:35 &ndash; 8:46<br>(11 mins)</td>
+                <td class="activity-col">Phase 2: Live Demo<br>From TEI Master to Local Preview<br><em>Slides 4&ndash;7. Checkpoint at Slide 5.</em></td>
                 <td class="desc-col">
-                    Demonstrate on projector: building a clean <code>&lt;standOff&gt;</code> container in VS Code.<br>
-                    Show how to tag a sentence anchor <code>&lt;s xml:id="s1"&gt;</code> and point to it with <code>&lt;note target="#s1" type="historical"&gt;</code>.<br>
-                    Explain why inline notes break when text crosses structural boundaries.
+                    Show <code>demo/witness.xml</code> + <code>edition_viewer/</code> running over <code>python3 -m http.server</code>. Toggle Diplomatic vs. Regularized vs. Interlinear on <em>Assemblee/Assembl&eacute;e</em>, <em>31 xbre/d&eacute;cembre 1791</em>, and <em>MM./Messieurs</em>, and inspect the <strong>QA</strong> toolbar badge.<br>
+                    Run Slide 5 checkpoint: diagnose a broken relative <code>&lt;graphic&gt;</code> filename and an unclosed tag caught by <code>xmllint --noout</code> and the viewer status bar.
                 </td>
-                <td class="target-col">Projector demo of standoff shell &amp; <code>@target</code> syntax</td>
+                <td class="target-col">Live toggle and diagnostic bar understood</td>
             </tr>
             <tr>
-                <td class="time-col">8:46 &ndash; 8:58<br>(12 mins)</td>
-                <td class="activity-col">Phase 3: Lab A<br>Philological &amp; Lexical Notes</td>
+                <td class="time-col">8:46 &ndash; 8:56<br>(10 mins)</td>
+                <td class="activity-col">Phase 3: Lab A<br>Stage <code>docs/</code> Folder<br><em>Slide 8 up.</em></td>
                 <td class="desc-col">
-                    Students open their witness text in VS Code and locate two archaic or specialized words.<br>
-                    Students wrap target words in <code>&lt;w xml:id="..."&gt;</code> or note sentence IDs, look up definitions in historical dictionaries, and author two philological notes.<br>
-                    Instructor circulates to ensure notes cite reliable dictionaries (OED, Acad&eacute;mie fran&ccedil;aise).
+                    Ace copies <code>labs/edition_viewer/{index.html,edition.css,viewer.js}</code> and her facsimile image (<code>decree.jpg</code>) into <code>docs/</code> in her repo.<br>
+                    Assemble <code>docs/edition.xml</code> from her latest validated TEI master (header, <code>&lt;facsimile&gt;</code>, regularized text) and run <code>xmllint --noout docs/edition.xml</code>.
                 </td>
-                <td class="target-col">2 philological notes in <code>commentary_manual.xml</code></td>
+                <td class="target-col"><code>docs/edition.xml</code> passes <code>xmllint</code></td>
             </tr>
             <tr>
-                <td class="time-col">8:58 &ndash; 9:12<br>(14 mins)</td>
-                <td class="activity-col">Phase 4: Lab B<br>Historical &amp; Intertextual Notes</td>
+                <td class="time-col">8:56 &ndash; 9:12<br>(16 mins)</td>
+                <td class="activity-col">Phase 4: Lab B<br>Local Test &amp; GitHub Pages Launch<br><em>Slides 9&ndash;11. Slide 11 checkpoint at 9:10.</em></td>
                 <td class="desc-col">
-                    Students identify one named historical figure, one location or institution, and one referenced external work.<br>
-                    Students author two historical notes with biographical dates and one intertextual note linking to external archives or collections.<br>
-                    Demonstrate adding authority links via <code>&lt;persName ref="https://..."&gt;</code>.
+                    Test locally with <code>python3 -m http.server</code>, verify Diplomatic/Regularized toggle and line-break spacing, commit and push <code>docs/</code> to GitHub.<br>
+                    Open repository <strong>Settings &rarr; Pages</strong>, set source to branch <code>main</code> folder <code>/docs</code>, wait ~60s, and open the live <code>github.io</code> URL together.
                 </td>
-                <td class="target-col">2 historical notes &amp; 1 intertextual note authored</td>
+                <td class="target-col">Public GitHub Pages edition URL live</td>
             </tr>
             <tr>
                 <td class="time-col">9:12 &ndash; 9:20<br>(8 mins)</td>
-                <td class="activity-col">Phase 5: Synthesis<br>Link Audit &amp; Wednesday Preview</td>
+                <td class="activity-col">Phase 5: Synthesis<br>Cohort Check &amp; Wednesday Preview<br><em>Slides 12&ndash;13.</em></td>
                 <td class="desc-col">
-                    Students run a <code>Cmd+F</code> search on every target ID to confirm 0 orphaned pointers.<br>
-                    Review student commentary notes on screen. Celebrate their research: <em>&ldquo;You have transformed a raw transcription into an informative critical edition.&rdquo;</em><br>
-                    Preview Wednesday: <em>&ldquo;Tomorrow we connect our notes to global authority files and test deterministic cross-referencing tools.&rdquo;</em>
+                    Inspect status bar on Ace's live URL: zero XML warnings, image loaded, toggle switches cleanly.<br>
+                    Preview Lesson 12.2: <em>&ldquo;Tomorrow we wire your Module 11 aligned translation and &lt;zone&gt; boxes so clicking a word or phrase highlights the image and translation in lockstep.&rdquo;</em>
                 </td>
-                <td class="target-col">5 verified notes saved; link audit clean</td>
+                <td class="target-col">Live prototype verified; Wed prepped</td>
             </tr>
         </tbody>
     </table>
@@ -123,9 +109,9 @@
     <div class="card">
         <h4>Cohort Differentiated Checkpoints</h4>
         <ul>
-            <li><strong>Ace (1791 French Revolutionary Decree):</strong> Focus on historical notes explaining <em>assignats</em>, paper currency depreciation, the <em>Comit&eacute; des d&eacute;crets</em>, and royal sanction procedures under the constitutional monarchy of 1791.</li>
-            <li><strong>Olyvia (1967 Maud Lewis Letters):</strong> Focus on biographical and medical notes on Maud Lewis's rheumatoid arthritis, her cottage in Marshalltown near Digby, and intertextual links to her celebrated cat and oxen paintings in the Art Gallery of Nova Scotia.</li>
-            <li><strong>Andromeda (1752 Peace and Friendship Treaty):</strong> Focus on legal and diplomatic notes explaining Governor Peregrine Hopson, Shubenacadie Mi'kmaq Chief Jean-Baptiste Cope, the 1752 truckhouse trading system, and links to the 1725 Dummer's Treaty.</li>
+            <li><strong>Ace Long (she/her &mdash; 1791 Louis XVI Address, <code>BL Zweig MS 169</code>):</strong> Ensure <code>&lt;graphic url="decree.jpg"/&gt;</code> sits beside <code>docs/edition.xml</code> (or points to the verified BL IIIF manifest) and verify that <code>Assemblee/Assembl&eacute;e</code>, <code>xbre/d&eacute;cembre</code>, and <code>MM./Messieurs</code> toggle without glued words around <code>&lt;lb/&gt;</code>.</li>
+            <li><strong>Andromeda Julian (independent/absent catch-up &mdash; 1752 Treaty Proclamation):</strong> Place <code>proclamation.jpg</code> beside <code>edition.xml</code> and check that hyphenated <code>&lt;choice&gt;&lt;orig&gt;Friend-&lt;lb n="50"/&gt;&#x17F;hip&lt;/orig&gt;&lt;reg&gt;friendship&lt;/reg&gt;&lt;/choice&gt;</code> hides the line break in Regularized view.</li>
+            <li><strong>Olyvia Kingston (independent/absent catch-up &mdash; 1967 Maud Lewis Letter):</strong> Ensure colloquial syntax remains untouched in both modes while regularized spellings (<em>beable/be able</em>, <em>pinture/picture</em>) toggle cleanly.</li>
         </ul>
     </div>
 

@@ -42,36 +42,38 @@ create_banner()
 
 # 2. Learning Objectives
 obj_html = """<div class="card p-3 mb-3 border-info" style="border-left: 5px solid #0284c7; background-color: #f0f9ff; border-radius: 6px; padding: 1.25rem;">
-    <h4 style="color: #0369a1; margin-top: 0;">Module 12: Digital Scholarly Commentary — Learning Objectives</h4>
+    <h4 style="color: #0369a1; margin-top: 0;">Module 12: Publication II &amp; Lightweight Commentary — Learning Objectives</h4>
     <p>By the end of this module, students will be able to:</p>
     <ul>
-        <li><strong>Classify</strong> scholarly commentary into distinct categories: philological/linguistic, historical/contextual, and intertextual text reuse.</li>
-        <li><strong>Construct</strong> stable <code>xml:id</code> anchors and encode commentary notes in TEI P5 using <code>&lt;standOff&gt;</code>, <code>&lt;interpGrp&gt;</code>, <code>&lt;note&gt;</code>, and <code>@target</code>.</li>
-        <li><strong>Detect</strong> formulaic text reuse using stoplists, TF-IDF rarity weighting, and regex proximity searches across document collections.</li>
-        <li><strong>Model</strong> linked annotations using the W3C Web Annotation Data Model, specifying targets, bodies, motivations, and <code>TextQuoteSelector</code> in JSON-LD.</li>
-        <li><strong>Audit and vet</strong> AI-generated commentary notes with strict negative constraints, catching hallucinated citations, anachronisms, and fake treaty clauses.</li>
+        <li><strong>Launch</strong> a zero-build 3-pane static TEI web edition on GitHub Pages (<code>docs/</code>: parallel facsimile <code>&lt;zone&gt;</code> overlays, switchable Diplomatic/Regularized/Interlinear reading views, and aligned translation).</li>
+        <li><strong>Synchronize</strong> facsimile regions, source spans, click-for-parsing word popovers (<code>.wpop</code> with <code>@xml:lang</code>-keyed dictionary links), and English translations cleanly across panes with zero dangling <code>#</code> pointers.</li>
+        <li><strong>Classify and draft</strong> concise, grounded scholarly commentary across three editorial categories: <code>philological</code>, <code>historical</code>, and <code>intertextual</code>.</li>
+        <li><strong>Encode</strong> source-backed stand-off notes (<code>&lt;standOff&gt;&lt;note target="#..." type="..." resp="..."&gt;</code>) incorporating verbatim <code>&lt;quote&gt;</code> lemmas and verifiable <code>&lt;bibl&gt;</code>/<code>&lt;ref&gt;</code> citations checked by automated QA.</li>
+        <li><strong>Audit and vet</strong> AI-generated commentary drafts under strict negative constraints, logging Accept/Revise/Reject verdicts and caught hallucinations honestly in <code>EDITION_NOTES.md</code>.</li>
     </ul>
 </div>"""
 
 # 3. Readings
 reading_html = """<div class="card p-3 mb-3" style="border-left: 5px solid #c29b38; background-color: #fcfcfd; border-radius: 6px; padding: 1.25rem;">
-    <h4 style="color: #c29b38; margin-top: 0;">Assigned Readings & Foundational Scholarship</h4>
-    <p>Please study the following key literature on digital commentary, annotation standards, and text reuse:</p>
+    <h4 style="color: #c29b38; margin-top: 0;">Assigned Readings &amp; Foundational Scholarship</h4>
+    <p>Please study the following key literature on static TEI web publication, semantic modeling, and digital commentary:</p>
     <ul>
         <li><strong>TEI Consortium.</strong> "Chapter 17: Simple Analytic Mechanisms." <em>TEI P5 Guidelines</em>, Version 4.8.0, 2024. Focus on § 17.1 (Notes and Annotations).</li>
-        <li><strong>W3C.</strong> <em>Web Annotation Data Model: W3C Recommendation</em>. World Wide Web Consortium, 2017.</li>
         <li><strong>Vander Meulen, David L.</strong> "The Digital Commentary: Past Practices and Future Directions." <em>Textual Cultures</em>, 12(2), 2019, pp. 45–72.</li>
+        <li><strong>Grallert, Till.</strong> "Editing Mundane Texts across the Digital Divide" (Ch. 5: TEI P5, GitHub Pages, and minimal-computing static publishing). In <em>The Companion to Digital Humanities in Practice</em>, ed. C. Crompton, L. Estill, R. J. Lane, and R. Siemens, Routledge, 2025, pp. 70–83 (Open Access).</li>
+        <li><strong>Stoyanova, Slavina, Øyvind Eide, and Enes Türkoglu.</strong> "Modeling Cultural Heritage Materials for Discovery and Analysis" (Ch. 10). In <em>The Companion to Digital Humanities in Practice</em>, Routledge, 2025, pp. 159–178 (Open Access).</li>
+        <li><strong>Dase, Kyle.</strong> "Towards a Model of the Network Edition" (Ch. 7). In <em>The Past, Present, and Future of Early Modern Digital Studies: Iter at 25</em> (<em>NTMRS 11</em>), Iter Press, 2023, pp. 145–169 (Open Access).</li>
     </ul>
 </div>"""
 
 # 4. Watch List
 watch_html = """<div class="card p-3 mb-3" style="border-left: 5px solid #0284c7; background-color: #f0f9ff; border-radius: 6px; padding: 1.25rem;">
-    <h4 style="color: #0369a1; margin-top: 0;">Curated Media & Technical Walkthroughs</h4>
-    <p>Review these video demonstrations before completing your commentary assignment:</p>
+    <h4 style="color: #0369a1; margin-top: 0;">Curated Media &amp; Technical Walkthroughs</h4>
+    <p>Review these live walkthrough guides before completing your Week 12 web publication and commentary milestone:</p>
     <ul>
-        <li><strong>From Marginalia to Linked Annotations:</strong> Historical origins and digital commentary architecture (22 mins).</li>
-        <li><strong>Encoding Standoff Commentary in TEI XML:</strong> Anchoring notes with <code>&lt;standOff&gt;</code> and <code>&lt;interpGrp&gt;</code> in VS Code (24 mins).</li>
-        <li><strong>Linked Web Annotations & AI Fact-Checking:</strong> W3C JSON-LD selectors and auditing computational drafts (20 mins).</li>
+        <li><strong>Lesson 12.1 Walkthrough — Staging <code>docs/</code> &amp; GitHub Pages Launch:</strong> Copying the zero-build static viewer, validating <code>edition.xml</code> with <code>xmllint</code>, and testing Diplomatic/Regularized/Interlinear toggles over HTTP.</li>
+        <li><strong>Lesson 12.2 Walkthrough — Synchronizing Image Zones, Translations, &amp; <code>.wpop</code> Popovers:</strong> Mapping <code>&lt;facsimile&gt;&lt;zone&gt;</code> coordinates, resolving <code>#</code> pointers across 3 panes, and checking language dictionary links.</li>
+        <li><strong>Lesson 12.3 Walkthrough — Stand-Off Commentary &amp; Negative AI Constraints:</strong> Encoding <code>philological</code>, <code>historical</code>, and <code>intertextual</code> notes with <code>&lt;quote&gt;</code> and <code>&lt;bibl&gt;</code> inside <code>&lt;standOff&gt;</code> and verifying zero QA warnings.</li>
     </ul>
 </div>"""
 

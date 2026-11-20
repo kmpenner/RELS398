@@ -11,13 +11,13 @@
     <div class="header-box">
         <div class="header-title">
             <h2>RELS 398.10 / ENGL 398.10 &middot; Digital Methods for Historical Documents</h2>
-            <h1>Instructor Teaching Plan: Meeting #36 (Lesson 13.3 &mdash; Multi-Modal Publishing, Minimal Computing, &amp; Archiving)</h1>
+            <h1>Instructor Teaching Plan: Meeting #36 (Lesson 13.3 &mdash; Final Packaging, Checksums, Archiving, &amp; Course Synthesis)</h1>
             <div class="meta-badges">
                 <span class="badge">Date: Friday, December 4, 2026</span>
-                <span class="badge">Time: 10:30 &ndash; 11:20 AM (50 mins)</span>
+                <span class="badge">Time: 10:30 &ndash; 11:20 AM (50 mins &mdash; Wednesday Timetable)</span>
                 <span class="badge">Room: MULH 3032</span>
-                <span class="badge">Context: Week 13 (Publication) &middot; Meeting 3 of 3 (Wednesday Timetable)</span>
-                <span class="badge">Milestone: Capstone Release, Zenodo DOI Minting, &amp; Exam Deliverable Launch</span>
+                <span class="badge">Context: Week 13 (Publication Studio) &middot; Meeting 3 of 3</span>
+                <span class="badge">Milestone: v1.0.0 GitHub Release, CHECKSUMS.txt, Offline/Print Bundle, &amp; Final Portfolio Prep</span>
             </div>
         </div>
     </div>
@@ -25,35 +25,25 @@
     <div class="context-banner">
         <div>
             <strong>PEDAGOGICAL ENTRY STATE AUDIT:</strong><br>
-            Students have completed all analytical, markup, and design layers: cataloguing, facsimiles, transcription, normalization, entities, commentary notes, editorial declarations, and CSS styling. Today they assemble and archive their final production deliverables in our concluding studio meeting.
+            Meeting #36 is the final class session of the term (running on Wednesday timetable at 10:30 AM following Thursday's Feast Day closure). From Lessons 13.1&ndash;13.2, Ace Long (she/her) holds a peer-reviewed 3-pane static edition with <code>&lt;front&gt;</code>, <code>&lt;editorialDecl&gt;</code>, <code>&lt;back&gt;</code>, and print PDF ready for final hardening and archival release.
         </div>
         <div>
             <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
-            Each student compiles a standalone offline HTML package, generates a print-ready PDF/A codex, computes cryptographic SHA-256 checksums, configures Zenodo archival metadata with multi-tiered open licensing (CC BY 4.0, CC0, MIT), and reviews the December Exam Period portfolio submission protocol.
+            Apply peer-review fixes to reach a clean <strong>QA (0)</strong> badge; verify the standalone offline viewer + final <code>edition_print.pdf</code>; generate cryptographic SHA-256 <code>CHECKSUMS.txt</code>; finalize <code>AI_PROVENANCE.md</code> / <code>EDITION_NOTES.md</code>; tag <code>v1.0.0</code> on GitHub (and optional Zenodo DOI snapshot); and walk through the Dec 10&ndash;19 Exam Period Capstone Portfolio rubric.
         </div>
     </div>
 
-    <div class="card">
-        <h4>Walk-in Music (plays as students arrive, before minute 0)</h4>
-        <ul>
-            <li><strong>Queen, &ldquo;We Are the Champions&rdquo;</strong> (1977, EMI / Elektra). A triumphant anthem celebrating hard-won victory and endurance.</li>
-            <li><strong>Pedagogical connection:</strong> Celebrating the culmination of thirteen weeks of rigorous archival, philological, and computational craft&mdash;from complete beginners in September to published digital editors today.</li>
-            <li><strong>Springboard at minute 0:</strong> &ldquo;Welcome to Meeting 36, our final class meeting of the semester. In September, you entered this room having never typed a command into a terminal or opened VS Code. Today, you complete your capstone digital editions. You have transcribed, normalized, tagged, annotated, and styled three remarkable primary witnesses. Today, we package your scholarship into multi-modal deliverables, mint permanent Zenodo DOIs, and establish open-access archives that will endure for decades.&rdquo;</li>
-        </ul>
-    </div>
-
     <div class="requirement-callout">
-        <h3>THE CAPSTONE ARCHIVAL DIRECTIVE: DURABLE SUSTAINABILITY</h3>
-        <p>A digital scholarly edition must be built to last. Reject server-side dependencies and fragile databases; embrace minimal computing, static file bundling, cryptographic checksums, and permanent Zenodo DOIs.</p>
+        <h3>THE ARCHIVAL DIRECTIVE: MUTABLE LINKS FADE; TAGGED RELEASES ENDURE</h3>
+        <p>Git branches evolve and university servers migrate, whereas a tagged GitHub Release (<code>v1.0.0</code>) bundled with TEI XML, standalone offline HTML, print PDF, Open Data licences, and a verifiable <code>CHECKSUMS.txt</code> manifest preserves FAIR (Findable, Accessible, Interoperable, Reusable) scholarship intact without maintenance debt (Hendriksen <em>NTMRS 11</em>, Ch. 11).</p>
     </div>
 
     <div class="caution-callout">
         <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
-        <p><strong>1. Multi-modal compilation:</strong> Editions must compile into web, offline standalone, and print PDF formats from a single master XML file.<br>
-        <strong>2. Minimal computing architecture:</strong> All web deliverables must run as static files on GitHub Pages without server-side database requirements.<br>
-        <strong>3. Cryptographic data integrity:</strong> Every release package must include a verified <code>CHECKSUMS.txt</code> manifest generated with SHA-256.<br>
-        <strong>4. Transparent AI disclosure:</strong> Full disclosure of all language models, prompt workflows, and human-in-the-loop verification protocols.<br>
-        <strong>5. Strict evaluation timeline:</strong> Assignment 12 is due tonight at 11:00 PM; the Capstone Portfolio is due during the Exam Period (Dec 10&ndash;19).</p>
+        <p><strong>1. Wednesday timetable awareness:</strong> Today's meeting runs 10:30&ndash;11:20 AM in MULH 3032; Module 12 is due tonight (Friday, December 4) by 11:00 PM.<br>
+        <strong>2. Checksums match final bytes:</strong> Generate <code>CHECKSUMS.txt</code> only <em>after</em> your final XML/CSS/PDF edits, then verify locally with <code>sha256sum -c CHECKSUMS.txt</code>.<br>
+        <strong>3. Honest provenance disclosure:</strong> State exact AI model names, prompt tasks, rejected hallucinations, and human verification steps in <code>AI_PROVENANCE.md</code> / <code>EDITION_NOTES.md</code>.<br>
+        <strong>4. Exam Period Capstone deadline:</strong> Final Capstone Edition Portfolio + live GitHub Pages release due in Moodle during the December Exam Period (Dec 10&ndash;19).</p>
     </div>
 
     <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
@@ -69,54 +59,48 @@
         </thead>
         <tbody>
             <tr>
-                <td class="time-col">10:30 &ndash; 10:36<br>(6 mins)</td>
-                <td class="activity-col">Phase 1: Framing<br>The Multi-Modal Imperative &amp; FAIR Data</td>
+                <td class="time-col">10:30 &ndash; 10:35<br>(5 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>From Working Site to FAIR Archival Release<br><em>Slides 1&ndash;3.</em></td>
                 <td class="desc-col">
-                    Welcome students to Meeting #36 (Wednesday timetable). Announce the final studio milestones.<br>
-                    Contrast fragile database editions with durable minimal computing architectures.<br>
-                    Introduce the FAIR Data Principles: Findable, Accessible, Interoperable, and Reusable.
+                    Contrast mutable <code>main</code> branches with frozen archival releases under FAIR principles (Findable, Accessible, Interoperable, Reusable).<br>
+                    Review the multi-modal Capstone bundle: live GitHub Pages site + canonical <code>edition.xml</code> + standalone offline HTML + print PDF + SHA-256 manifest + AI disclosure.
                 </td>
-                <td class="target-col">Framing established; FAIR principles introduced</td>
+                <td class="target-col">Archival release criteria clear</td>
             </tr>
             <tr>
-                <td class="time-col">10:36 &ndash; 10:46<br>(10 mins)</td>
-                <td class="activity-col">Phase 2: Live Demo<br>Zenodo DOI Minting &amp; GitHub Releases</td>
+                <td class="time-col">10:35 &ndash; 10:46<br>(11 mins)</td>
+                <td class="activity-col">Phase 2: Live Demo<br>Checksums, Release Tagging, &amp; Zenodo Snapshot<br><em>Slides 4&ndash;7. Checkpoint at Slide 5.</em></td>
                 <td class="desc-col">
-                    Demonstrate on projector: creating a tagged GitHub Release (<code>v1.0.0</code>) with attached zip and PDF assets.<br>
-                    Show how GitHub-Zenodo integration archives the repository snapshot and mints a persistent DOI.<br>
-                    Illustrate generating SHA-256 checksums in the terminal to verify data integrity.
+                    Demonstrate generating <code>CHECKSUMS.txt</code> with <code>sha256sum</code> and checking integrity with <code>sha256sum -c</code>; tagging an annotated Git release (<code>git tag -a v1.0.0 -m "Public release"</code>); and attaching <code>edition_print.pdf</code> + standalone offline HTML on GitHub Releases (with Zenodo webhook walk-through).<br>
+                    Slide 5 checkpoint: diagnose why generating checksums <em>before</em> fixing one typo breaks <code>sha256sum -c</code> verification.
                 </td>
-                <td class="target-col">Projector demo of GitHub release and Zenodo integration</td>
+                <td class="target-col"><code>sha256sum</code> &amp; release workflow demonstrated</td>
             </tr>
             <tr>
-                <td class="time-col">10:46 &ndash; 10:58<br>(12 mins)</td>
-                <td class="activity-col">Phase 3: Lab A<br>Compiling Offline Packages &amp; Checksums</td>
+                <td class="time-col">10:46 &ndash; 10:57<br>(11 mins)</td>
+                <td class="activity-col">Phase 3: Lab A<br>Peer-Review Polish, QA Verification, &amp; Print PDF<br><em>Slide 8 up.</em></td>
                 <td class="desc-col">
-                    Students compile their standalone offline HTML bundle and print-ready PDF codex.<br>
-                    Generate <code>CHECKSUMS.txt</code> using <code>sha256sum</code> across all master deliverables.<br>
-                    Instructor circulates to test offline packages in disconnected browser tabs.
+                    Students implement priority fixes from Wednesday's <code>PEER_REVIEW.md</code>, verify <code>xmllint --noout docs/edition.xml</code>, confirm the browser <strong>QA</strong> drawer shows <strong>0 errors</strong> (and all target notes cite <code>&lt;quote&gt;</code> + <code>&lt;bibl&gt;</code>), regenerate final <code>edition_print.pdf</code>, and test one offline copy of <code>edition_viewer.html</code> in the browser.
                 </td>
-                <td class="target-col">Offline packages compiled; checksums verified</td>
+                <td class="target-col">Clean QA + final XML &amp; PDF ready</td>
             </tr>
             <tr>
-                <td class="time-col">10:58 &ndash; 11:12<br>(14 mins)</td>
-                <td class="activity-col">Phase 4: Lab B<br>Drafting Release Notes &amp; Zenodo Metadata</td>
+                <td class="time-col">10:57 &ndash; 11:12<br>(15 mins)</td>
+                <td class="activity-col">Phase 4: Lab B<br>AI Disclosure, CHECKSUMS.txt, &amp; Tag v1.0.0<br><em>Slides 9&ndash;11. Checkpoint at Slide 11 at 11:10.</em></td>
                 <td class="desc-col">
-                    Students draft release notes for <code>v1.0.0</code> in <code>README.md</code> with full archival coordinates.<br>
-                    Add formal citation block (Chicago, MLA, APA) and multi-tiered licensing declarations.<br>
-                    Complete AI Disclosure Statement detailing human-in-the-loop verification reference works.
+                    Finalize <code>AI_PROVENANCE.md</code> / <code>EDITION_NOTES.md</code>; run <code>sha256sum docs/* edition_print.pdf &gt; CHECKSUMS.txt</code> and verify <code>sha256sum -c CHECKSUMS.txt</code> returns OK for every file.<br>
+                    Commit, push, create tagged <code>v1.0.0</code> GitHub Release, and verify the live <code>github.io</code> edition + Moodle Exam Portfolio checklist.
                 </td>
-                <td class="target-col">Release notes and Zenodo metadata drafted</td>
+                <td class="target-col"><code>CHECKSUMS.txt</code> verified; <code>v1.0.0</code> live</td>
             </tr>
             <tr>
                 <td class="time-col">11:12 &ndash; 11:20<br>(8 mins)</td>
-                <td class="activity-col">Phase 5: Synthesis<br>Semester Review &amp; Exam Timeline</td>
+                <td class="activity-col">Phase 5: Synthesis<br>Semester Arc &amp; Exam Submission Checklist<br><em>Slides 12&ndash;13.</em></td>
                 <td class="desc-col">
-                    Remind students: Assignment 12 (Commentary) is due tonight, Dec 4 at 11:00 PM (80 pts).<br>
-                    Review Capstone Portfolio submission protocol during the December Exam Period (Dec 10&ndash;19, 100 pts).<br>
-                    Closing synthesis: celebrate the journey from terminal novices to published digital textual editors.
+                    Reflect on the full arc from September manual diplomatics to published, accessible, verified digital editions today.<br>
+                    Confirm tonight's Module 12 deadline (11:00 PM) and the December Exam Period (Dec 10&ndash;19) final submission links (Moodle URL + <code>v1.0.0</code> archive bundle + provenance log).
                 </td>
-                <td class="target-col">Deadlines confirmed; semester journey celebrated</td>
+                <td class="target-col">Course concluded; exam protocol confirmed</td>
             </tr>
         </tbody>
     </table>
@@ -124,9 +108,8 @@
     <div class="card">
         <h4>Cohort Differentiated Checkpoints</h4>
         <ul>
-            <li><strong>Ace (1791 French Revolutionary Decree):</strong> Finalize bilingual XML, dual-column HTML, and print PDF codex; prepare Zenodo deposit citing Archives nationales de France Série C and assignat monetary history.</li>
-            <li><strong>Olyvia (1967 Maud Lewis Letter):</strong> Finalize epistolary HTML, postal stationery facsimiles, and print PDF; prepare Zenodo deposit citing Leonard Kinnear correspondence and Nova Scotia folk art heritage.</li>
-            <li><strong>Andromeda (1752 Peace and Friendship Treaty):</strong> Finalize clause-by-clause legal XML, totem mark graphics, and legal PDF; prepare Zenodo deposit citing Nova Scotia Archives RG 1 vol 430 and treaty rights jurisprudence.</li>
+            <li><strong>Ace Long (she/her &mdash; 1791 Louis XVI Address, <code>BL Zweig MS 169</code>):</strong> Confirm clean French-English release package (<code>docs/edition.xml</code>, <code>decree.jpg</code>, <code>edition_print.pdf</code>, <code>EDITION_NOTES.md</code>, <code>CHECKSUMS.txt</code>), zero unresolved IDs/notes, and working <code>v1.0.0</code> tag on GitHub.</li>
+            <li><strong>Andromeda Julian (1752 Treaty Proclamation) &amp; Olyvia Kingston (1967 Maud Lewis Letter):</strong> Ensure offline self-contained bundle + <code>edition_print.pdf</code> + <code>CHECKSUMS.txt</code> + live GitHub Pages URL are all tested locally before final Exam Period submission in Moodle.</li>
         </ul>
     </div>
 

@@ -1,11 +1,11 @@
 <div class="card p-3 mb-3 border-info" style="border-left: 5px solid #0284c7; background-color: #f0f9ff; border-radius: 6px; padding: 1.25rem;">
-    <h4 style="color: #0369a1; margin-top: 0;">Module 12: Digital Scholarly Commentary — Learning Objectives</h4>
+    <h4 style="color: #0369a1; margin-top: 0;">Module 12: Publication II &amp; Lightweight Commentary — Learning Objectives</h4>
     <p>By the end of this module, students will be able to:</p>
     <ul>
-        <li><strong>Classify</strong> scholarly commentary into distinct categories: philological/linguistic, historical/contextual, and intertextual text reuse.</li>
-        <li><strong>Construct</strong> stable <code>xml:id</code> anchors and encode commentary notes in TEI P5 using <code>&lt;standOff&gt;</code>, <code>&lt;interpGrp&gt;</code>, <code>&lt;note&gt;</code>, and <code>@target</code>.</li>
-        <li><strong>Detect</strong> formulaic text reuse using stoplists, TF-IDF rarity weighting, and regex proximity searches across document collections.</li>
-        <li><strong>Model</strong> linked annotations using the W3C Web Annotation Data Model, specifying targets, bodies, motivations, and <code>TextQuoteSelector</code> in JSON-LD.</li>
-        <li><strong>Audit and vet</strong> AI-generated commentary notes with strict negative constraints, catching hallucinated citations, anachronisms, and fake treaty clauses.</li>
+        <li><strong>Launch</strong> a zero-build 3-pane static TEI web edition on GitHub Pages (<code>docs/</code>: parallel facsimile <code>&lt;zone&gt;</code> overlays, switchable Diplomatic/Regularized/Interlinear reading views, and aligned translation).</li>
+        <li><strong>Synchronize</strong> facsimile regions, source spans, click-for-parsing word popovers (<code>.wpop</code> with <code>@xml:lang</code>-keyed dictionary links), and English translations cleanly across panes with zero dangling <code>#</code> pointers.</li>
+        <li><strong>Classify and draft</strong> concise, grounded scholarly commentary across three editorial categories: <code>philological</code>, <code>historical</code>, and <code>intertextual</code>.</li>
+        <li><strong>Encode</strong> source-backed stand-off notes (<code>&lt;standOff&gt;&lt;note target="#..." type="..." resp="..."&gt;</code>) incorporating verbatim <code>&lt;quote&gt;</code> lemmas and verifiable <code>&lt;bibl&gt;</code>/<code>&lt;ref&gt;</code> citations checked by automated QA.</li>
+        <li><strong>Audit and vet</strong> AI-generated commentary drafts under strict negative constraints, logging Accept/Revise/Reject verdicts and caught hallucinations honestly in <code>EDITION_NOTES.md</code>.</li>
     </ul>
 </div>

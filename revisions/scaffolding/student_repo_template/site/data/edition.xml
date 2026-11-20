@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="halifax_treaty_1760_lahave_demo">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>1760 Halifax Peace and Friendship Treaty (LaHave Exemplar: Hunting, Fishing, and Truckhouse Excerpt)</title>
+        <author>
+          <persName ref="wikidata:Q2959610">Charles Lawrence</persName>
+          <persName>Paul Laurent</persName>
+        </author>
+        <editor>RELS 398 / ENGL 398 Editorial Team</editor>
+        <respStmt>
+          <resp>Diplomatic encoding, linguistic annotation, and alignment</resp>
+          <name xml:id="editor">Course Editorial Template</name>
+        </respStmt>
+        <respStmt>
+          <resp>AI-assisted normalization and token check</resp>
+          <name xml:id="ai">LLM Assistant (human-verified)</name>
+        </respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>St. Francis Xavier University — RELS 398 / ENGL 398</publisher>
+        <pubPlace>Antigonish, Nova Scotia</pubPlace>
+        <date when="2026">2026</date>
+        <availability status="free">
+          <licence target="https://creativecommons.org/licenses/by/4.0/">
+            TEI encoding and editorial commentary distributed under CC BY 4.0; historical treaty text is in the public domain.
+          </licence>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <country>Canada</country>
+            <settlement>Halifax, Nova Scotia</settlement>
+            <institution>Nova Scotia Archives</institution>
+            <repository>Colonial Records</repository>
+            <idno type="shelfmark">RG 1 vol. 430 no. 4 (representative excerpt)</idno>
+          </msIdentifier>
+          <msContents>
+            <summary>
+              Excerpt of the Peace and Friendship Treaty concluded at Halifax on 10 March 1760 between Governor Charles Lawrence and Chief Paul Laurent of the LaHave Mi'kmaq, guaranteeing liberty of hunting and fishing, establishment of a Truckhouse at the River Chibenaccadie, and free liberty of trade at Halifax.
+            </summary>
+            <textLang mainLang="en">Eighteenth-century colonial legal English</textLang>
+          </msContents>
+          <physDesc>
+            <objectDesc form="sheet">
+              <supportDesc material="parchment">
+                <support><p>Parchment sheet with iron-gall ink manuscript text, red wax seal, and Mi'kmaw clan totem signature mark.</p></support>
+              </supportDesc>
+            </objectDesc>
+          </physDesc>
+          <history>
+            <origin>
+              <origDate when="1760-03-10">10 March 1760</origDate>
+              <origPlace ref="geonames:6324729">Halifax, Nova Scotia</origPlace>
+            </origin>
+          </history>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <editorialDecl>
+        <correction method="markup">
+          <p>No silent emendations are applied to the historical text. Diplomatic forms appear in &lt;orig&gt; and &lt;abbr&gt;; editorial modernizations are encoded in &lt;reg&gt; and &lt;expan&gt;.</p>
+        </correction>
+        <normalization method="markup">
+          <p>Substantive common-noun capitalization characteristic of 18th-century Chancery prose (e.g., Hunting, Fishing, Merchandize, Skins) and historical spelling (Merchandize, Chibenaccadie) are regularized in the Reading view while remaining intact in Diplomatic view. Ampersands (&amp;) and Chancery title abbreviations (Esqr., Govr.) are expanded inside &lt;choice&gt;.</p>
+        </normalization>
+        <interpretation>
+          <p>Tokens are annotated with Universal Dependencies UPOS tags (@pos) and lemmas (@lemma). Sentence and phrase pairs link to a plain-language English paraphrase in &lt;linkGrp&gt;.</p>
+        </interpretation>
+      </editorialDecl>
+      <prefixDef ident="wikidata" matchPattern="(Q[0-9]+)" replacementPattern="https://www.wikidata.org/wiki/\1"/>
+      <prefixDef ident="geonames" matchPattern="([0-9]+)" replacementPattern="https://www.geonames.org/\1"/>
+    </encodingDesc>
+  </teiHeader>
+
+  <facsimile>
+    <surface xml:id="surf_treaty_1r" ulx="0" uly="0" lrx="1000" lry="1300">
+      <graphic url="treaty_1760_sample.svg"/>
+      <zone xml:id="z_heading" ulx="70" uly="62" lrx="930" lry="210"/>
+      <zone xml:id="z_hunting" ulx="70" uly="230" lrx="930" lry="445"/>
+      <zone xml:id="z_truckhouse" ulx="70" uly="470" lrx="930" lry="820"/>
+      <zone xml:id="z_seals" ulx="70" uly="865" lrx="930" lry="1195"/>
+    </surface>
+  </facsimile>
+
+  <text>
+    <front>
+      <div type="introduction">
+        <head>Editorial Introduction &amp; Historical Context</head>
+        <p>This representative digital edition models a documentary workflow for the 10 March 1760 Peace and Friendship Treaty between Governor Charles Lawrence of Nova Scotia and Chief Paul Laurent of the LaHave Mi'kmaq (Nova Scotia Archives, RG 1, vol. 430, no. 4).</p>
+        <p>Use the toolbar above to switch between <mentioned>Diplomatic</mentioned> orthography, normalized <mentioned>Regularized</mentioned> reading text, and token-by-token <mentioned>Interlinear</mentioned> analysis with word-level dictionary lookup. All transcription lines, regularized tokens, translation units, and historical commentary link back to rectangular manuscript zones.</p>
+      </div>
+    </front>
+
+    <body>
+      <div type="transcription" xml:id="div_source" xml:lang="en">
+        <pb n="1r" facs="#surf_treaty_1r"/>
+        <head facs="#z_heading">
+          <s xml:id="s1" facs="#z_heading">
+            <w xml:id="s1w1" lemma="treaty" pos="NOUN">Treaty</w>
+            <w xml:id="s1w2" lemma="of" pos="ADP">of</w>
+            <w xml:id="s1w3" lemma="peace" pos="NOUN">Peace</w>
+            <w xml:id="s1w4" lemma="and" pos="CCONJ"><choice><abbr>&amp;</abbr><expan resp="#editor">and</expan></choice></w>
+            <w xml:id="s1w5" lemma="friendship" pos="NOUN">Friendship</w>
+            <w xml:id="s1w6" lemma="conclude" pos="VERB" msd="Tense=Past|VerbForm=Part">concluded</w>
+            <w xml:id="s1w7" lemma="by" pos="ADP">by</w>
+            <w xml:id="s1w8" lemma="he" pos="PRON">His</w><lb/>
+            <persName ref="wikidata:Q2959610">
+              <w xml:id="s1w9" lemma="excellency" pos="NOUN">Excellency</w>
+              <w xml:id="s1w10" lemma="Charles" pos="PROPN">Charles</w>
+              <w xml:id="s1w11" lemma="Lawrence" pos="PROPN">Lawrence</w>
+            </persName>
+            <w xml:id="s1w12" lemma="Esquire" pos="NOUN"><choice><abbr>Esqr.</abbr><expan resp="#editor">Esquire</expan></choice></w>
+            <w xml:id="s1w13" lemma="governor" pos="NOUN"><choice><abbr>Govr.</abbr><expan resp="#editor">Governor</expan></choice></w>
+            <w xml:id="s1w14" lemma="of" pos="ADP">of</w>
+            <placeName ref="geonames:6091530">
+              <w xml:id="s1w15" lemma="Nova" pos="PROPN">Nova</w>
+              <w xml:id="s1w16" lemma="Scotia" pos="PROPN">Scotia</w>
+            </placeName><lb/>
+            <w xml:id="s1w17" lemma="with" pos="ADP">with</w>
+            <persName>
+              <w xml:id="s1w18" lemma="Paul" pos="PROPN">Paul</w>
+              <w xml:id="s1w19" lemma="Laurent" pos="PROPN">Laurent</w>
+            </persName>
+            <w xml:id="s1w20" lemma="chief" pos="NOUN">Chief</w>
+            <w xml:id="s1w21" lemma="of" pos="ADP">of</w>
+            <w xml:id="s1w22" lemma="the" pos="DET">the</w>
+            <orgName>
+              <w xml:id="s1w23" lemma="tribe" pos="NOUN">Tribe</w>
+              <w xml:id="s1w24" lemma="of" pos="ADP">of</w>
+              <placeName ref="geonames:5994420">
+                <w xml:id="s1w25" lemma="LaHave" pos="PROPN">LaHave</w>
+              </placeName>
+              <w xml:id="s1w26" lemma="Indian" pos="PROPN">Indians</w>
+            </orgName><pc pos="PUNCT">,</pc>
+            <date when="1760-03-10">
+              <w xml:id="s1w27" lemma="10th" pos="ADJ"><choice><orig>10th</orig><reg resp="#editor">10</reg></choice></w>
+              <w xml:id="s1w28" lemma="March" pos="PROPN">March</w>
+              <w xml:id="s1w29" lemma="1760" pos="NUM">1760</w>
+            </date><pc pos="PUNCT">.</pc>
+          </s>
+        </head>
+
+        <p>
+          <s xml:id="s2" facs="#z_hunting">
+            <seg xml:id="seg_hunting" facs="#z_hunting">
+              <w xml:id="s2w1" lemma="it" pos="PRON">It</w>
+              <w xml:id="s2w2" lemma="be" pos="AUX">is</w>
+              <w xml:id="s2w3" lemma="agree" pos="VERB" msd="Tense=Past|VerbForm=Part">agreed</w>
+              <w xml:id="s2w4" lemma="that" pos="SCONJ">that</w>
+              <w xml:id="s2w5" lemma="the" pos="DET">the</w>
+              <w xml:id="s2w6" lemma="said" pos="ADJ">said</w>
+              <w xml:id="s2w7" lemma="tribe" pos="NOUN">Tribe</w>
+              <w xml:id="s2w8" lemma="of" pos="ADP">of</w>
+              <w xml:id="s2w9" lemma="Indian" pos="PROPN">Indians</w>
+              <w xml:id="s2w10" lemma="shall" pos="AUX">shall</w>
+              <w xml:id="s2w11" lemma="not" pos="PART">not</w>
+              <w xml:id="s2w12" lemma="be" pos="AUX">be</w>
+              <w xml:id="s2w13" lemma="hinder" pos="VERB" msd="Tense=Past|VerbForm=Part">hindered</w><lb/>
+              <w xml:id="s2w14" lemma="from" pos="ADP">from</w><pc pos="PUNCT">,</pc>
+              <w xml:id="s2w15" lemma="but" pos="CCONJ">but</w>
+              <w xml:id="s2w16" lemma="have" pos="VERB">have</w>
+              <w xml:id="s2w17" lemma="free" pos="ADJ">free</w>
+              <w xml:id="s2w18" lemma="liberty" pos="NOUN">liberty</w>
+              <w xml:id="s2w19" lemma="of" pos="ADP">of</w>
+              <w xml:id="s2w20" lemma="hunting" pos="NOUN"><choice><orig>Hunting</orig><reg resp="#editor">hunting</reg></choice></w>
+              <w xml:id="s2w21" lemma="and" pos="CCONJ"><choice><abbr>&amp;</abbr><expan resp="#editor">and</expan></choice></w>
+              <w xml:id="s2w22" lemma="fishing" pos="NOUN"><choice><orig>Fishing</orig><reg resp="#editor">fishing</reg></choice></w>
+              <w xml:id="s2w23" lemma="as" pos="ADP">as</w>
+              <w xml:id="s2w24" lemma="usual" pos="ADJ">usual</w>
+            </seg><lb/>
+            <seg xml:id="seg_truckhouse" facs="#z_truckhouse">
+              <w xml:id="s2w25" lemma="and" pos="CCONJ"><choice><abbr>&amp;</abbr><expan resp="#editor">and</expan></choice></w>
+              <w xml:id="s2w26" lemma="that" pos="SCONJ">that</w>
+              <w xml:id="s2w27" lemma="if" pos="SCONJ">if</w>
+              <w xml:id="s2w28" lemma="they" pos="PRON">they</w>
+              <w xml:id="s2w29" lemma="shall" pos="AUX">shall</w>
+              <w xml:id="s2w30" lemma="think" pos="VERB">think</w>
+              <w xml:id="s2w31" lemma="a" pos="DET">a</w>
+              <w xml:id="s2w32" lemma="truckhouse" pos="NOUN">Truckhouse</w>
+              <w xml:id="s2w33" lemma="needful" pos="ADJ">needful</w>
+              <w xml:id="s2w34" lemma="at" pos="ADP">at</w>
+              <w xml:id="s2w35" lemma="the" pos="DET">the</w><lb/>
+              <placeName ref="geonames:6147240">
+                <w xml:id="s2w36" lemma="River" pos="NOUN">River</w>
+                <w xml:id="s2w37" lemma="Shubenacadie" pos="PROPN"><choice><orig>Chibenaccadie</orig><reg resp="#editor">Shubenacadie</reg></choice></w>
+              </placeName>
+              <w xml:id="s2w38" lemma="or" pos="CCONJ">or</w>
+              <w xml:id="s2w39" lemma="any" pos="DET">any</w>
+              <w xml:id="s2w40" lemma="other" pos="ADJ">other</w>
+              <w xml:id="s2w41" lemma="place" pos="NOUN">place</w>
+              <w xml:id="s2w42" lemma="of" pos="ADP">of</w>
+              <w xml:id="s2w43" lemma="their" pos="PRON">their</w>
+              <w xml:id="s2w44" lemma="resort" pos="NOUN">resort</w><pc pos="PUNCT">,</pc><lb/>
+              <w xml:id="s2w45" lemma="they" pos="PRON">they</w>
+              <w xml:id="s2w46" lemma="shall" pos="AUX">shall</w>
+              <w xml:id="s2w47" lemma="have" pos="VERB">have</w>
+              <w xml:id="s2w48" lemma="the" pos="DET">the</w>
+              <w xml:id="s2w49" lemma="same" pos="ADJ">same</w>
+              <w xml:id="s2w50" lemma="build" pos="VERB" msd="Tense=Past|VerbForm=Part">built</w>
+              <w xml:id="s2w51" lemma="and" pos="CCONJ"><choice><abbr>&amp;</abbr><expan resp="#editor">and</expan></choice></w>
+              <w xml:id="s2w52" lemma="proper" pos="ADJ">proper</w>
+              <w xml:id="s2w53" lemma="merchandise" pos="NOUN"><choice><orig>Merchandize</orig><reg resp="#editor">merchandise</reg></choice></w><lb/>
+              <w xml:id="s2w54" lemma="lodge" pos="VERB" msd="Tense=Past|VerbForm=Part">lodged</w>
+              <w xml:id="s2w55" lemma="therein" pos="ADV">therein</w><pc pos="PUNCT">,</pc>
+              <w xml:id="s2w56" lemma="to" pos="PART">to</w>
+              <w xml:id="s2w57" lemma="be" pos="AUX">be</w>
+              <w xml:id="s2w58" lemma="exchange" pos="VERB" msd="Tense=Past|VerbForm=Part">exchanged</w>
+              <w xml:id="s2w59" lemma="for" pos="ADP">for</w>
+              <w xml:id="s2w60" lemma="what" pos="PRON">what</w>
+              <w xml:id="s2w61" lemma="the" pos="DET">the</w>
+              <w xml:id="s2w62" lemma="Indian" pos="PROPN">Indians</w>
+              <w xml:id="s2w63" lemma="shall" pos="AUX">shall</w><lb/>
+              <w xml:id="s2w64" lemma="have" pos="VERB">have</w>
+              <w xml:id="s2w65" lemma="to" pos="PART">to</w>
+              <w xml:id="s2w66" lemma="dispose" pos="VERB">dispose</w>
+              <w xml:id="s2w67" lemma="of" pos="ADP">of</w><pc pos="PUNCT">,</pc>
+              <w xml:id="s2w68" lemma="and" pos="CCONJ"><choice><abbr>&amp;</abbr><expan resp="#editor">and</expan></choice></w>
+              <w xml:id="s2w69" lemma="that" pos="SCONJ">that</w>
+              <w xml:id="s2w70" lemma="in" pos="ADP">in</w>
+              <w xml:id="s2w71" lemma="the" pos="DET">the</w>
+              <w xml:id="s2w72" lemma="meantime" pos="NOUN"><choice><orig>mean time</orig><reg resp="#editor">meantime</reg></choice></w>
+              <w xml:id="s2w73" lemma="the" pos="DET">the</w>
+              <w xml:id="s2w74" lemma="said" pos="ADJ">said</w><lb/>
+              <w xml:id="s2w75" lemma="Indian" pos="PROPN">Indians</w>
+              <w xml:id="s2w76" lemma="shall" pos="AUX">shall</w>
+              <w xml:id="s2w77" lemma="have" pos="VERB">have</w>
+              <w xml:id="s2w78" lemma="free" pos="ADJ">free</w>
+              <w xml:id="s2w79" lemma="liberty" pos="NOUN">liberty</w>
+              <w xml:id="s2w80" lemma="to" pos="PART">to</w>
+              <w xml:id="s2w81" lemma="bring" pos="VERB">bring</w>
+              <w xml:id="s2w82" lemma="for" pos="ADP">for</w>
+              <w xml:id="s2w83" lemma="sale" pos="NOUN"><choice><orig>Sale</orig><reg resp="#editor">sale</reg></choice></w>
+              <w xml:id="s2w84" lemma="to" pos="ADP">to</w>
+              <placeName ref="geonames:6324729"><w xml:id="s2w85" lemma="Halifax" pos="PROPN">Halifax</w></placeName><lb/>
+              <w xml:id="s2w86" lemma="or" pos="CCONJ">or</w>
+              <w xml:id="s2w87" lemma="any" pos="DET">any</w>
+              <w xml:id="s2w88" lemma="other" pos="ADJ">other</w>
+              <w xml:id="s2w89" lemma="settlement" pos="NOUN"><choice><orig>Settlement</orig><reg resp="#editor">settlement</reg></choice></w>
+              <w xml:id="s2w90" lemma="within" pos="ADP">within</w>
+              <w xml:id="s2w91" lemma="this" pos="DET">this</w>
+              <w xml:id="s2w92" lemma="province" pos="NOUN">Province</w><pc pos="PUNCT">,</pc>
+              <w xml:id="s2w93" lemma="skin" pos="NOUN"><choice><orig>Skins</orig><reg resp="#editor">skins</reg></choice></w><pc pos="PUNCT">,</pc>
+              <w xml:id="s2w94" lemma="feather" pos="NOUN">feathers</w><pc pos="PUNCT">,</pc><lb/>
+              <w xml:id="s2w95" lemma="fowl" pos="NOUN">fowl</w><pc pos="PUNCT">,</pc>
+              <w xml:id="s2w96" lemma="fish" pos="NOUN">fish</w>
+              <w xml:id="s2w97" lemma="or" pos="CCONJ">or</w>
+              <w xml:id="s2w98" lemma="any" pos="DET">any</w>
+              <w xml:id="s2w99" lemma="other" pos="ADJ">other</w>
+              <w xml:id="s2w100" lemma="thing" pos="NOUN">thing</w>
+              <w xml:id="s2w101" lemma="they" pos="PRON">they</w>
+              <w xml:id="s2w102" lemma="shall" pos="AUX">shall</w>
+              <w xml:id="s2w103" lemma="have" pos="VERB">have</w>
+              <w xml:id="s2w104" lemma="to" pos="PART">to</w>
+              <w xml:id="s2w105" lemma="sell" pos="VERB">sell</w><pc pos="PUNCT">,</pc><lb/>
+              <w xml:id="s2w106" lemma="where" pos="SCONJ">where</w>
+              <w xml:id="s2w107" lemma="they" pos="PRON">they</w>
+              <w xml:id="s2w108" lemma="shall" pos="AUX">shall</w>
+              <w xml:id="s2w109" lemma="have" pos="VERB">have</w>
+              <w xml:id="s2w110" lemma="liberty" pos="NOUN">liberty</w>
+              <w xml:id="s2w111" lemma="to" pos="PART">to</w>
+              <w xml:id="s2w112" lemma="dispose" pos="VERB">dispose</w>
+              <w xml:id="s2w113" lemma="thereof" pos="ADV">thereof</w>
+              <w xml:id="s2w114" lemma="to" pos="ADP">to</w>
+              <w xml:id="s2w115" lemma="the" pos="DET">the</w>
+              <w xml:id="s2w116" lemma="good" pos="ADJ">best</w>
+              <w xml:id="s2w117" lemma="advantage" pos="NOUN"><choice><orig>Advantage</orig><reg resp="#editor">advantage</reg></choice></w><pc pos="PUNCT">.</pc>
+            </seg>
+          </s>
+        </p>
+
+        <closer facs="#z_seals">
+          <s xml:id="s3" facs="#z_seals">
+            <signed>
+              <persName ref="wikidata:Q2959610">
+                <w xml:id="s3w1" lemma="Charles" pos="PROPN"><choice><abbr>Cha.</abbr><expan resp="#editor">Charles</expan></choice></w>
+                <w xml:id="s3w2" lemma="Lawrence" pos="PROPN">Lawrence</w>
+              </persName>
+            </signed><lb/>
+            <signed>
+              <persName>
+                <w xml:id="s3w3" lemma="Paul" pos="PROPN">Paul</w>
+                <w xml:id="s3w4" lemma="Laurent" pos="PROPN">Laurent</w>
+              </persName>
+              <figure facs="#z_seals"><figDesc>Pictographic Mi'kmaw clan totem signature mark beside British wax seal</figDesc></figure>
+            </signed>
+          </s>
+        </closer>
+      </div>
+
+      <div type="translation" xml:id="div_translation" xml:lang="en">
+        <head>
+          <s xml:id="t1">
+            <w xml:id="t1w1">Peace</w>
+            <w xml:id="t1w2">and</w>
+            <w xml:id="t1w3">Friendship</w>
+            <w xml:id="t1w4">Treaty</w>
+            <w xml:id="t1w5">signed</w>
+            <w xml:id="t1w6">by</w>
+            <w xml:id="t1w7">Governor</w>
+            <w xml:id="t1w8">Charles</w>
+            <w xml:id="t1w9">Lawrence</w>
+            <w xml:id="t1w10">of</w>
+            <w xml:id="t1w11">Nova</w>
+            <w xml:id="t1w12">Scotia</w>
+            <w xml:id="t1w13">and</w>
+            <w xml:id="t1w14">Chief</w>
+            <w xml:id="t1w15">Paul</w>
+            <w xml:id="t1w16">Laurent</w>
+            <w xml:id="t1w17">of</w>
+            <w xml:id="t1w18">the</w>
+            <w xml:id="t1w19">LaHave</w>
+            <w xml:id="t1w20">Mi'kmaq</w>
+            <w xml:id="t1w21">on</w>
+            <w xml:id="t1w22">March</w>
+            <w xml:id="t1w23">10,</w>
+            <w xml:id="t1w24">1760.</w>
+          </s>
+        </head>
+        <p>
+          <s xml:id="t2">
+            <seg xml:id="tseg_hunting">
+              <w xml:id="t2w1">Both</w>
+              <w xml:id="t2w2">parties</w>
+              <w xml:id="t2w3">agree</w>
+              <w xml:id="t2w4">that</w>
+              <w xml:id="t2w5">the</w>
+              <w xml:id="t2w6">LaHave</w>
+              <w xml:id="t2w7">Mi'kmaq</w>
+              <w xml:id="t2w8">will</w>
+              <w xml:id="t2w9">not</w>
+              <w xml:id="t2w10">be</w>
+              <w xml:id="t2w11">obstructed</w>
+              <w xml:id="t2w12">from</w>
+              <w xml:id="t2w13">hunting</w>
+              <w xml:id="t2w14">and</w>
+              <w xml:id="t2w15">fishing</w>
+              <w xml:id="t2w16">freely</w>
+              <w xml:id="t2w17">as</w>
+              <w xml:id="t2w18">before.</w>
+            </seg>
+          </s>
+          <s xml:id="t3">
+            <seg xml:id="tseg_truckhouse">
+              <w xml:id="t3w1">Whenever</w>
+              <w xml:id="t3w2">they</w>
+              <w xml:id="t3w3">wish,</w>
+              <w xml:id="t3w4">a</w>
+              <w xml:id="t3w5">government</w>
+              <w xml:id="t3w6">trading</w>
+              <w xml:id="t3w7">post</w>
+              <w xml:id="t3w8">(truckhouse)</w>
+              <w xml:id="t3w9">stocked</w>
+              <w xml:id="t3w10">with</w>
+              <w xml:id="t3w11">goods</w>
+              <w xml:id="t3w12">will</w>
+              <w xml:id="t3w13">be</w>
+              <w xml:id="t3w14">built</w>
+              <w xml:id="t3w15">along</w>
+              <w xml:id="t3w16">the</w>
+              <w xml:id="t3w17">Shubenacadie</w>
+              <w xml:id="t3w18">River</w>
+              <w xml:id="t3w19">or</w>
+              <w xml:id="t3w20">elsewhere;</w>
+              <w xml:id="t3w21">until</w>
+              <w xml:id="t3w22">then,</w>
+              <w xml:id="t3w23">they</w>
+              <w xml:id="t3w24">may</w>
+              <w xml:id="t3w25">freely</w>
+              <w xml:id="t3w26">bring</w>
+              <w xml:id="t3w27">furs,</w>
+              <w xml:id="t3w28">feathers,</w>
+              <w xml:id="t3w29">birds,</w>
+              <w xml:id="t3w30">fish,</w>
+              <w xml:id="t3w31">and</w>
+              <w xml:id="t3w32">other</w>
+              <w xml:id="t3w33">goods</w>
+              <w xml:id="t3w34">to</w>
+              <w xml:id="t3w35">sell</w>
+              <w xml:id="t3w36">at</w>
+              <w xml:id="t3w37">Halifax</w>
+              <w xml:id="t3w38">or</w>
+              <w xml:id="t3w39">any</w>
+              <w xml:id="t3w40">provincial</w>
+              <w xml:id="t3w41">settlement</w>
+              <w xml:id="t3w42">for</w>
+              <w xml:id="t3w43">the</w>
+              <w xml:id="t3w44">best</w>
+              <w xml:id="t3w45">terms.</w>
+            </seg>
+          </s>
+        </p>
+        <closer>
+          <s xml:id="t4">
+            <w xml:id="t4w1">Signed</w>
+            <w xml:id="t4w2">and</w>
+            <w xml:id="t4w3">sealed</w>
+            <w xml:id="t4w4">by</w>
+            <w xml:id="t4w5">Charles</w>
+            <w xml:id="t4w6">Lawrence</w>
+            <w xml:id="t4w7">and</w>
+            <w xml:id="t4w8">Paul</w>
+            <w xml:id="t4w9">Laurent</w>
+            <w xml:id="t4w10">(with</w>
+            <w xml:id="t4w11">clan</w>
+            <w xml:id="t4w12">totem</w>
+            <w xml:id="t4w13">mark).</w>
+          </s>
+        </closer>
+      </div>
+    </body>
+
+    <back>
+      <div type="bibliography">
+        <head>Bibliography &amp; Primary Sources</head>
+        <listBibl>
+          <bibl xml:id="bibl_nsa_1760">Nova Scotia Archives, Colonial Records, <title>Treaty of Peace and Friendship concluded with Paul Laurent, Chief of the LaHave Tribe of Indians, 10 March 1760</title>, RG 1, vol. 430, no. 4 (<ref target="https://archives.novascotia.ca/mikmaq/">Nova Scotia Archives Mi'kmaq Holdings</ref>).</bibl>
+          <bibl xml:id="bibl_wicken_2002">Wicken, William C. <title>Mi'kmaq Treaties on Trial: History, Land, and Donald Marshall Junior</title>. University of Toronto Press, 2002.</bibl>
+          <bibl xml:id="bibl_marshall_1999">Supreme Court of Canada, <title>R. v. Marshall</title>, [1999] 3 S.C.R. 456 (<ref target="https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/1739/index.do">SCC Judgments</ref>).</bibl>
+        </listBibl>
+      </div>
+    </back>
+  </text>
+
+  <standOff>
+    <linkGrp type="sentence-alignment" resp="#editor">
+      <link target="#s1 #t1"/>
+      <link target="#s2 #t2 #t3"/>
+      <link target="#s3 #t4"/>
+    </linkGrp>
+    <linkGrp type="segment-alignment" resp="#editor">
+      <link target="#seg_hunting #tseg_hunting"/>
+      <link target="#seg_truckhouse #tseg_truckhouse"/>
+    </linkGrp>
+    <linkGrp type="word-alignment" resp="#editor">
+      <link target="#s2w20 #t2w13"/>
+      <link target="#s2w22 #t2w15"/>
+      <link target="#s2w32 #t3w5 #t3w6 #t3w7 #t3w8"/>
+      <link target="#s2w37 #t3w17"/>
+      <link target="#s2w85 #t3w37"/>
+    </linkGrp>
+    <note xml:id="n1" type="philological" target="#s2w32" resp="#editor">
+      The manuscript reading <quote>a Truckhouse</quote> reflects 18th-century colonial Atlantic usage (<mentioned>to truck</mentioned>, meaning to barter or trade), designating a government-regulated trading post where furs and pelts were exchanged at fixed tariff prices for European provisions and tools.
+      <bibl corresp="#bibl_wicken_2002">Wicken, <title>Mi'kmaq Treaties on Trial</title>, ch. 6.</bibl>
+    </note>
+    <note xml:id="n2" type="historical" target="#s2w37" resp="#editor">
+      On the phrase <quote>the River Chibenaccadie</quote>: <placeName ref="geonames:6147240">Shubenacadie</placeName> (from Mi'kmaw <mentioned>Sipekne'katik</mentioned>, "place where wild groundnuts grow") was a central Mi'kmaq district settlement along the Shubenacadie River, also named in the 1752 treaty with Jean-Baptiste Cope and interpreted in <title>R. v. Marshall</title> (1999).
+      <bibl corresp="#bibl_marshall_1999"><title>R. v. Marshall</title>, [1999] 3 S.C.R. 456.</bibl>
+    </note>
+    <note xml:id="n3" type="intertextual" target="#s3" resp="#editor">
+      Under the closing attestation <quote>Cha. Lawrence / Paul Laurent</quote>, the hunting, fishing, and truckhouse boilerplate in Paul Laurent's 10 March 1760 LaHave treaty recurs nearly verbatim across the 1760–1761 Halifax district exemplars (Shubenacadie, Richibucto, Miramichi), alongside each chief's distinctive clan totem mark.
+      <bibl corresp="#bibl_nsa_1760">Nova Scotia Archives, RG 1, vol. 430, nos. 2–9.</bibl>
+    </note>
+  </standOff>
+</TEI>

@@ -11,13 +11,13 @@
     <div class="header-box">
         <div class="header-title">
             <h2>RELS 398.10 / ENGL 398.10 &middot; Digital Methods for Historical Documents</h2>
-            <h1>Instructor Teaching Plan: Meeting #35 (Lesson 13.2 &mdash; The TEI Processing Model, ODD, &amp; Presentation Styles)</h1>
+            <h1>Instructor Teaching Plan: Meeting #35 (Lesson 13.2 &mdash; Comparing Publication Architectures, QA Sweep, &amp; Peer Review)</h1>
             <div class="meta-badges">
                 <span class="badge">Date: Wednesday, December 2, 2026</span>
                 <span class="badge">Time: 10:30 &ndash; 11:20 AM (50 mins)</span>
                 <span class="badge">Room: MULH 3032</span>
-                <span class="badge">Context: Week 13 (Publication) &middot; Meeting 2 of 3</span>
-                <span class="badge">Milestone: TEI Processing Model, ODD Customization, &amp; CSS Web Layouts</span>
+                <span class="badge">Context: Week 13 (Publication Studio) &middot; Meeting 2 of 3</span>
+                <span class="badge">Milestone: Comparative Platform Literacy, QA (0 Errors), &amp; Peer Review Report</span>
             </div>
         </div>
     </div>
@@ -25,35 +25,24 @@
     <div class="context-banner">
         <div>
             <strong>PEDAGOGICAL ENTRY STATE AUDIT:</strong><br>
-            In Lesson 13.1, students authored their narrative editorial introduction in <code>README.md</code>, populated formal machine-readable policies in TEI <code>&lt;editorialDecl&gt;</code>, declared multi-tiered open licenses in <code>&lt;publicationStmt&gt;</code>, and validated their master XML document. Today they step into the design studio to transform raw XML into accessible, responsive web layouts.
+            In Lesson 13.1, students encoded their <code>&lt;front&gt;</code> editorial introduction, <code>&lt;editorialDecl&gt;</code>, <code>&lt;licence&gt;</code>, and <code>&lt;back&gt;&lt;listBibl&gt;</code>, generated print PDFs via <code>@media print</code>, and pushed updated sites to GitHub Pages. Today connects classroom craftsmanship to wider Digital Humanities publication ecosystems and runs our automated QA gate + structured peer review.
         </div>
         <div>
             <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
-            Each student creates a declarative ODD specification linking TEI elements to abstract rendering behaviors (<code>inline</code>, <code>block</code>, <code>note</code>, <code>alternate</code>), creates an external <code>style.css</code> stylesheet with custom typographic and documentary styles, and previews their interactive edition using Live Server in VS Code.
+            Compare four publication architectures on projector (our minimal-computing static viewer, <code>THREAD3</code>, TEI Publisher 10/11 + ODD, and EVT 3 / EditionCrafter); run the viewer's built-in 5-point <strong>QA</strong> drawer on students' own live sites to reach <strong>0 errors / 0 warnings</strong>; verify <code>.wpop</code> dictionary lookup; and complete a structured peer-review audit of another cohort witness.
         </div>
     </div>
 
-    <div class="card">
-        <h4>Walk-in Music (plays as students arrive, before minute 0)</h4>
-        <ul>
-            <li><strong>Kraftwerk, &ldquo;The Model&rdquo;</strong> (1978, Kling Klang / Capitol). A sleek, pioneering electronic track about visual elegance and presentation.</li>
-            <li><strong>Pedagogical connection:</strong> Moving from underlying engineering to public presentation—defining the visual &ldquo;model&rdquo; that displays our archival scholarship to the world.</li>
-            <li><strong>Springboard at minute 0:</strong> &ldquo;Yesterday, you declared the scholarly principles and metadata governing your digital edition. Today, we step into the design studio. Raw XML is an archival record, but readers experience your scholarship through its visual presentation. Today, we explore how the TEI Processing Model and modern CSS transform semantic markup into elegant, accessible web layouts.&rdquo;</li>
-        </ul>
-    </div>
-
     <div class="requirement-callout">
-        <h3>THE DESIGN STUDIO DIRECTIVE: DECLARATIVE SEPARATION</h3>
-        <p>Never hard-code visual presentation into TEI XML. Instead, use declarative <code>&lt;model&gt;</code> rules inside an ODD specification to bind semantic elements to abstract behaviors and modular CSS classes.</p>
+        <h3>THE SUSTAINABILITY DIRECTIVE: ARCHITECTURE MATCHES PROJECT REALITY</h3>
+        <p>No single DH publication framework fits every team. Server-backed platforms (eXist-db / TEI Publisher) power large multi-work repositories with faceted search when dedicated devops exist; Angular/React SPAs (EVT 3, EditionCrafter) impose rigid folder or build assumptions; zero-build static CETEIcean + OpenSeadragon keeps classroom single-witness editions completely readable, forkable, and server-free for decades.</p>
     </div>
 
     <div class="caution-callout">
         <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
-        <p><strong>1. Declarative modeling over bespoke code:</strong> Avoid fragile procedural stylesheets; declare abstract behaviors in ODD.<br>
-        <strong>2. Clean typographic restraint:</strong> Avoid distracting neon highlights; use subtle muted tones and interactive tooltips for named entities.<br>
-        <strong>3. Rigorous documentary styling:</strong> Preserve physical cancellations and additions with strikethrough and superscript styles rather than erasing them.<br>
-        <strong>4. Responsive design:</strong> Layouts must adapt gracefully from widescreen side-by-side panes to stacked vertical views on mobile devices.<br>
-        <strong>5. Universal accessibility:</strong> Provide semantic HTML landmarks, descriptive alt text for manuscript images, and full keyboard navigation.</p>
+        <p><strong>1. Evidence-based platform comparison:</strong> Evaluate platforms by concrete engineering trade-offs (backend tax, single <code>&lt;choice&gt;</code> master support, learning curve), not vendor hype (Grallert <em>Companion</em> 2025, Ch. 5; Meneses <em>NTMRS 11</em>, Ch. 8).<br>
+        <strong>2. Clear all QA checks before peer handoff:</strong> Fix duplicate IDs, dangling <code>#</code> pointers, unlinked sentences, unsourced notes without <code>&lt;quote&gt;</code>, and missing <code>@resp</code> credits.<br>
+        <strong>3. Constructive, reproducible peer critique:</strong> Every peer-review finding must name an exact observation, URL/pane, and actionable TEI/CSS fix (<em>Early Modern Digital Review</em> rubric).</p>
     </div>
 
     <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
@@ -69,54 +58,48 @@
         </thead>
         <tbody>
             <tr>
-                <td class="time-col">10:30 &ndash; 10:36<br>(6 mins)</td>
-                <td class="activity-col">Phase 1: Framing<br>Beyond Raw XML: The Processing Model</td>
+                <td class="time-col">10:30 &ndash; 10:35<br>(5 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>Four Paths to Publishing TEI on the Web<br><em>Slides 1&ndash;3.</em></td>
                 <td class="desc-col">
-                    Welcome students. Contrast raw XML data with styled web reading interfaces.<br>
-                    Explain why legacy XSLT stylesheets broke and how the TEI Processing Model solves maintenance debt.<br>
-                    Introduce the ODD (&ldquo;One Document Does It All&rdquo;) concept as the single source of truth.
+                    Orient students to the wider TEI publishing landscape they will meet beyond StFX: static CETEIcean shells, bespoke research apps like Ken Penner's <code>THREAD3</code>, institutional XML databases like TEI Publisher 10/11 (eXist-db + ODD Processing Model + Jinks), and IIIF viewers like EVT 3 / EditionCrafter.
                 </td>
-                <td class="target-col">Framing established; Processing Model introduced</td>
+                <td class="target-col">4-platform mental map established</td>
             </tr>
             <tr>
-                <td class="time-col">10:36 &ndash; 10:46<br>(10 mins)</td>
-                <td class="activity-col">Phase 2: Live Demo<br>ODD Models and CSS Binding</td>
+                <td class="time-col">10:35 &ndash; 10:47<br>(12 mins)</td>
+                <td class="activity-col">Phase 2: Live Comparative Demo<br>THREAD3, TEI Publisher, EVT 3, &amp; Our Static Viewer<br><em>Slides 4&ndash;7. Checkpoint at Slide 5.</em></td>
                 <td class="desc-col">
-                    Demonstrate on projector: building an <code>&lt;elementSpec&gt;</code> with <code>&lt;model behaviour="inline" cssClass="..."&gt;</code>.<br>
-                    Show how <code>@predicate</code> routes philological vs. historical notes to distinct visual styles.<br>
-                    Illustrate how the <code>alternate</code> behaviour enables toggling between diplomatic and normalized spelling.
+                    Live demo on projector: show <code>THREAD3</code> static publication (comparing its <code>.wpop</code> dictionary popover, Interlinear reading grid, <code>&lt;front&gt;</code>/<code>&lt;back&gt;</code> handling, and automated <code>checks.js</code> gate now built into RELS 398's viewer) alongside TEI Publisher's ODD Processing Model and EVT 3 / EditionCrafter file layouts.<br>
+                    Slide 5 checkpoint: ask students why Docker/eXist-db breaks sustainability for a 1-semester course repo, and why EditionCrafter's split <code>tc</code>/<code>tcn</code>/<code>tl</code> files conflict with inline <code>&lt;choice&gt;</code> encoding.
                 </td>
-                <td class="target-col">Projector demo of ODD models and CSS binding</td>
+                <td class="target-col">Architectural trade-offs &amp; ODD concept clear</td>
             </tr>
             <tr>
-                <td class="time-col">10:46 &ndash; 10:58<br>(12 mins)</td>
-                <td class="activity-col">Phase 3: Lab A<br>Typographic &amp; Documentary Styling</td>
+                <td class="time-col">10:47 &ndash; 10:58<br>(11 mins)</td>
+                <td class="activity-col">Phase 3: Lab A<br>Automated QA Sweep &amp; Popover Testing<br><em>Slide 8 up.</em></td>
                 <td class="desc-col">
-                    Students author their base <code>style.css</code> stylesheet in VS Code.<br>
-                    Configure serif typography (EB Garamond/Georgia), line height (1.65), and subtle entity underlines.<br>
-                    Implement documentary styles for deletions (<code>line-through</code>) and additions (<code>vertical-align: super</code>).
+                    Students open their live <code>github.io</code> edition and click the <strong>QA</strong> button in the toolbar to inspect all 5 automated checks (<code>dup_ids</code>, <code>dangling</code>, <code>align_coverage</code>, <code>com_checks</code>, <code>model_credit</code>).<br>
+                    Resolve any warnings (adding missing <code>&lt;quote&gt;</code>, <code>&lt;bibl&gt;</code>, or <code>&lt;respStmt&gt;</code> links), verify <strong>Interlinear</strong> view, click French/English words to test live TLFi/Wiktionary <code>.wpop</code> links, commit, and push.
                 </td>
-                <td class="target-col">Base <code>style.css</code> configured and verified</td>
+                <td class="target-col">QA pill clean; <code>.wpop</code> &amp; Interlinear verified</td>
             </tr>
             <tr>
                 <td class="time-col">10:58 &ndash; 11:12<br>(14 mins)</td>
-                <td class="activity-col">Phase 4: Lab B<br>Flexbox Layouts &amp; Live Server Preview</td>
+                <td class="activity-col">Phase 4: Lab B<br>Structured Peer Review (5-Point EMDR Rubric)<br><em>Slides 9&ndash;11. Checkpoint at Slide 11 at 11:10.</em></td>
                 <td class="desc-col">
-                    Students construct side-by-side reading panes using CSS Flexbox (facsimile beside transcription).<br>
-                    Launch Live Server in VS Code to test interactive note popups and entity tooltips live in the browser.<br>
-                    Instructor circulates to test mobile responsiveness using browser DevTools (F12).
+                    Test a partner's live URL (or the 1760 LaHave Treaty sample + classmate repo snapshot) against our 5-point rubric: (1) Image &amp; <code>@facs</code> zone accuracy; (2) Diplomatic/Regularized/Interlinear fidelity; (3) Translation sync &amp; popover links; (4) Source-backed notes &amp; <code>&lt;editorialDecl&gt;</code>; (5) Accessibility, print preview, &amp; zero console errors.<br>
+                    Record structured feedback in <code>PEER_REVIEW.md</code> or a GitHub Issue.
                 </td>
-                <td class="target-col">Interactive edition running in Live Server</td>
+                <td class="target-col">Completed 5-point <code>PEER_REVIEW.md</code> log</td>
             </tr>
             <tr>
                 <td class="time-col">11:12 &ndash; 11:20<br>(8 mins)</td>
-                <td class="activity-col">Phase 5: Synthesis<br>Quality Audit &amp; Friday Timetable Alert</td>
+                <td class="activity-col">Phase 5: Synthesis<br>Triage Top Fixes &amp; Preview Final Class<br><em>Slides 12&ndash;13.</em></td>
                 <td class="desc-col">
-                    Execute 4-point quality audit: HTML syntax, CSS links, image paths, and note anchor targets.<br>
-                    <strong>Schedule Alert:</strong> Remind students that Thursday is StFX Patronal Feast Day (university closed).<br>
-                    Friday Dec 4 runs on a Wednesday timetable: class meets at <strong>10:30 AM in MULH 3032</strong> for capstone archiving.
+                    Synthesize the top 2&ndash;3 concrete fixes surfaced by QA and peer review across the room.<br>
+                    Preview Meeting #36 (Friday, December 4 &mdash; Wednesday timetable in this room): final polish, standalone offline package verification, SHA-256 <code>CHECKSUMS.txt</code>, tagged <code>v1.0.0</code> GitHub Release, and archival submission.
                 </td>
-                <td class="target-col">Quality audit passed; Friday timetable confirmed</td>
+                <td class="target-col">Prioritized fix list for Fri Dec 4</td>
             </tr>
         </tbody>
     </table>
@@ -124,9 +107,8 @@
     <div class="card">
         <h4>Cohort Differentiated Checkpoints</h4>
         <ul>
-            <li><strong>Ace (1791 French Revolutionary Decree):</strong> Format royal title banner, numbered article cards (Article I, II), and dual-column Flexbox layout comparing diplomatic long-s text with modernized French.</li>
-            <li><strong>Olyvia (1967 Maud Lewis Letter):</strong> Format postal stationery header, preserve handwritten line breaks (<code>&lt;lb/&gt;</code>), style strikeout deletions, and configure folk art thumbnail popups.</li>
-            <li><strong>Andromeda (1752 Peace and Friendship Treaty):</strong> Format spacious legal treaty clauses with Roman numerals, embed scanned totem marks and wax seals, and configure interactive legal commentary popups.</li>
+            <li><strong>Ace Long (she/her &mdash; 1791 Louis XVI Address, <code>BL Zweig MS 169</code>):</strong> Confirm French <code>xml:lang="fr"</code> sits on her text container so clicking <em>office</em> or <em>assembl&eacute;e</em> opens TLFi / Acad&eacute;mie fran&ccedil;aise links in <code>.wpop</code>; clear any lingering <code>dup_ids</code> or <code>unsourced_com</code> QA warnings; review the 1752 Treaty or 1760 sample edition in Lab B.</li>
+            <li><strong>Andromeda Julian (1752 Treaty Proclamation) &amp; Olyvia Kingston (1967 Maud Lewis Letter):</strong> Run the QA panel locally via <code>python3 -m http.server</code>, verify Wiktionary/OED lookup links in <code>.wpop</code>, clear any unlinked <code>&lt;s&gt;</code> warnings, and file a short <code>PEER_REVIEW.md</code> critique against the course sample or peer URL.</li>
         </ul>
     </div>
 

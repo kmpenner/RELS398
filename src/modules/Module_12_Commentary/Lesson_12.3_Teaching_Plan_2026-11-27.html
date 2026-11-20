@@ -11,13 +11,13 @@
     <div class="header-box">
         <div class="header-title">
             <h2>RELS 398.10 / ENGL 398.10 &middot; Digital Methods for Historical Documents</h2>
-            <h1>Instructor Teaching Plan: Meeting #33 (Lesson 12.3 &mdash; AI-Assisted Commentary Drafting &amp; Philological Vetting)</h1>
+            <h1>Instructor Teaching Plan: Meeting #33 (Lesson 12.3 &mdash; Lightweight Scholarly Commentary Inside Your Published Edition)</h1>
             <div class="meta-badges">
                 <span class="badge">Date: Friday, November 27, 2026</span>
                 <span class="badge">Time: 9:30 &ndash; 10:20 AM (50 mins)</span>
                 <span class="badge">Room: MULH 3032</span>
-                <span class="badge">Context: Week 12 (Commentary) &middot; Meeting 3 of 3</span>
-                <span class="badge">Milestone: AI Drafting, Negative Constraints, &amp; Three-Way Comparative Audit</span>
+                <span class="badge">Context: Week 12 (Publication II &amp; Commentary) &middot; Meeting 3 of 3</span>
+                <span class="badge">Milestone: 3 Vetted <code>&lt;standOff&gt;&lt;note&gt;</code> Popovers Live on GitHub Pages</span>
             </div>
         </div>
     </div>
@@ -25,35 +25,25 @@
     <div class="context-banner">
         <div>
             <strong>PEDAGOGICAL ENTRY STATE AUDIT:</strong><br>
-            Students authored manual commentary notes on Tuesday (establishing baseline ground truth) and tested rule-based text reuse algorithms on Wednesday. Today they evaluate generative AI models as drafting assistants. Students must understand that while models draft fluent prose rapidly, they operate statistically and can fabricate citations, hallucinate non-existent treaty clauses, or introduce modern anachronisms.
+            Ace's (she/her) 3-pane static edition is live on GitHub Pages with parallel image zones, Diplomatic/Regularized toggle, and aligned English translation. Today brings scholarly commentary directly into that web interface—keeping commentary concise (3 focused notes rather than an entire abstract week) and grounding every fact against primary historical sources before encoding it.
         </div>
         <div>
             <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
-            Each student prompts an AI model using structured negative constraints, conducts a forensic hallucination hunt on generated outputs, audits candidate notes against primary witnesses, records editorial decisions in <code>COMMENTARY.md</code>, and integrates vetted notes into TEI <code>&lt;standOff&gt;</code> with explicit <code>@resp</code> provenance.
+            Hand-author three notes (1 philological, 1 historical, 1 intertextual) on a short passage, run one AI candidate/verification pass under strict negative constraints, log editorial decisions (Accept / Revise / Reject) plus a 150&ndash;250 word reflection in <code>EDITION_NOTES.md</code>, merge the verified <code>&lt;standOff&gt;&lt;note target="#..." type="..." resp="..."&gt;</code> notes into <code>docs/edition.xml</code>, validate with <code>xmllint</code>, and verify interactive pins live on GitHub Pages.
         </div>
     </div>
 
-    <div class="card">
-        <h4>Walk-in Music (plays as students arrive, before minute 0)</h4>
-        <ul>
-            <li><strong>Joni Mitchell, &ldquo;Both Sides, Now&rdquo;</strong> (1969, Reprise). A meditative reflection on illusions, shifting perspectives, and seeing reality from both sides.</li>
-            <li><strong>Pedagogical connection:</strong> Evaluating commentary requires looking from both sides: celebrating computational power while maintaining sharp human skepticism against generative illusions.</li>
-            <li><strong>Springboard at minute 0:</strong> &ldquo;On Tuesday, you wrote notes with careful human hands. On Wednesday, algorithms scanned words mechanically. Today, we invite artificial intelligence into the scriptorium. AI writes with astonishing speed and fluency, but like looking at clouds from both sides, its smooth prose can hide illusions and fabricated facts. Today, you are the forensic editor who holds the model accountable.&rdquo;</li>
-        </ul>
-    </div>
-
     <div class="requirement-callout">
-        <h3>THE COMMENTARY DIRECTIVE: HUMAN-IN-THE-LOOP FORENSIC AUDITING</h3>
-        <p>A digital edition is not an uncritical echo of machine-generated text. Every AI draft must pass through a strict four-step forensic audit (quotations, entities, citations, and XML anchors) before being admitted into a scholarly edition.</p>
+        <h3>THE COMMENTARY DIRECTIVE: VERIFIED CONTEXT INSIDE READABLE POPOVERS</h3>
+        <p>Lightweight stand-off notes keep the diplomatic transcription uncluttered while giving readers instant historical, lexical, and cross-document context via numbered pins (<code>[1]</code>, <code>[2]</code>, <code>[3]</code>). Never admit an AI-suggested date, title, or treaty claim without checking it against primary records first.</p>
     </div>
 
     <div class="caution-callout">
         <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
-        <p><strong>1. Zero trust for unvetted citations:</strong> Never accept a book title, volume number, or archival shelfmark without verifying it in primary library catalogs.<br>
-        <strong>2. Negative prompt constraints mandatory:</strong> Every prompt must explicitly forbid invented citations and demand <code>[UNVERIFIED]</code> flags for uncertain claims.<br>
-        <strong>3. Maintain transparent provenance:</strong> Always mark machine-generated notes with <code>resp="#ai-draft"</code> and human editors with <code>resp="#human-editor"</code>.<br>
-        <strong>4. The COMMENTARY.md ledger:</strong> Every student must maintain an audit ledger documenting decisions (Accept, Revise, Reject, Flag).<br>
-        <strong>5. Assignment 12 due date:</strong> Assignment 12 (Scholarly Commentary, 80 points) is due Friday, December 4 at 11:00 PM.</p>
+        <p><strong>1. Three distinct categories:</strong> Encode one <code>type="philological"</code>, one <code>type="historical"</code>, and one <code>type="intertextual"</code> note.<br>
+        <strong>2. Anchors must match exact <code>xml:id</code>s:</strong> Every <code>@target="#..."</code> must resolve cleanly in the live viewer status bar.<br>
+        <strong>3. Negative AI constraints mandatory:</strong> Require the LLM to flag uncertain facts with <code>[UNVERIFIED]</code> and reject any unsubstantiated shelfmark, date, or citation; mark provenance with <code>@resp</code>.<br>
+        <strong>4. Deadlines:</strong> Module 11 (Alignment) is due tonight by 11:00 PM; Module 12 (Live 3-Pane GitHub Pages Edition + 3 Notes + <code>EDITION_NOTES.md</code>) is due Friday, December 4 by 11:00 PM.</p>
     </div>
 
     <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
@@ -69,64 +59,47 @@
         </thead>
         <tbody>
             <tr>
-                <td class="time-col">9:30 &ndash; 9:36<br>(6 mins)</td>
-                <td class="activity-col">Phase 1: Framing<br>The AI Assistant in Textual Scholarship</td>
+                <td class="time-col">9:30 &ndash; 9:35<br>(5 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>Where Concise Commentary Fits<br><em>Slides 1&ndash;3.</em></td>
                 <td class="desc-col">
-                    Welcome students. Frame Step 3 of the comparative cycle.<br>
-                    Contrast semantic inference with Wednesday's rule-based lexical matching.<br>
-                    Define the epistemic boundary: broad public context vs. unique local archival witnesses.
+                    Distinguish the three note types (philological, historical, intertextual) and show how <code>edition_viewer</code> renders <code>&lt;standOff&gt;&lt;note&gt;</code> cleanly in the Notes drawer and beside anchored spans.
                 </td>
-                <td class="target-col">Step 3 framed; epistemic boundaries established</td>
+                <td class="target-col">3-category note framework clear</td>
             </tr>
             <tr>
-                <td class="time-col">9:36 &ndash; 9:46<br>(10 mins)</td>
-                <td class="activity-col">Phase 2: Live Demo<br>Structured Prompts &amp; Negative Constraints</td>
+                <td class="time-col">9:35 &ndash; 9:46<br>(11 mins)</td>
+                <td class="activity-col">Phase 2: Live Demo &amp; Fact Check<br>Stand-Off Syntax &amp; Hallucination Hunt<br><em>Slides 4&ndash;7. Checkpoint at Slide 5.</em></td>
                 <td class="desc-col">
-                    Demonstrate on projector: prompting inside VS Code for historical commentary.<br>
-                    Show the difference between a sloppy open prompt and a constrained system prompt.<br>
-                    Illustrate negative guardrails: forbidding invented citations and demanding <code>[UNVERIFIED]</code> flags.
+                    Inspect TEI <code>&lt;standOff&gt;&lt;note target="#..." type="..." resp="#editor"&gt;</code> syntax including a verbatim <code>&lt;quote&gt;</code> lemma and a cited <code>&lt;bibl&gt;</code>/<code>&lt;ref&gt;</code> source checked by the viewer's <strong>QA</strong> drawer (<code>com_lemma</code>, <code>unsourced_com</code>).<br>
+                    Slide 5 checkpoint: spot why an AI draft confusing the December 31, 1791 Legislative Assembly (<code>Q780457</code>) with the earlier Constituent Assembly (<code>Q876424</code>), or inventing non-existent treaty clauses, fails editorial audit.
                 </td>
-                <td class="target-col">Projector demo of structured prompt engineering</td>
+                <td class="target-col">Negative prompt rules &amp; syntax verified</td>
             </tr>
             <tr>
-                <td class="time-col">9:46 &ndash; 9:58<br>(12 mins)</td>
-                <td class="activity-col">Phase 3: Lab A<br>The Hallucination Hunt</td>
+                <td class="time-col">9:46 &ndash; 9:57<br>(11 mins)</td>
+                <td class="activity-col">Phase 3: Lab A<br>Hand-Author Three Verified Notes<br><em>Slide 8 up.</em></td>
                 <td class="desc-col">
-                    Students run structured prompts on their primary witness in VS Code.<br>
-                    Students conduct a forensic fact-checking audit: checking dates, names, and cited volumes.<br>
-                    Instructor circulates to help students identify subtle hallucinations and anachronisms.
+                    Before prompting any LLM, Ace drafts 3 grounded notes with sources (dictionary, Wikidata/archival record, primary cross-reference) in her manual draft file and picks their target <code>xml:id</code> anchors.
                 </td>
-                <td class="target-col">Unvetted drafts generated; hallucinations caught</td>
+                <td class="target-col">3 manual notes &amp; citations drafted</td>
             </tr>
             <tr>
-                <td class="time-col">9:58 &ndash; 10:06<br>(8 mins)</td>
-                <td class="activity-col">Phase 4: Lab B<br>Three-Way Comparative Audit</td>
+                <td class="time-col">9:57 &ndash; 10:09<br>(12 mins)</td>
+                <td class="activity-col">Phase 4: Lab B<br>AI Verification Audit &amp; XML Merge<br><em>Slides 9&ndash;10.</em></td>
                 <td class="desc-col">
-                    Students populate the Three-Way Comparative Audit Matrix in <code>COMMENTARY.md</code>.<br>
-                    Compare Manual (Tue) vs Deterministic (Wed) vs AI-Assisted (Fri) across precision, speed, and error profile.<br>
-                    Mark each note Accept, Revise, Reject or Flag.
+                    Prompt AI under strict negative constraints for candidate notes on the same passage, record Accept / Revise / Reject decisions plus reflection in <code>EDITION_NOTES.md</code>, and merge the 3 final verified <code>&lt;note&gt;</code> elements into <code>docs/edition.xml</code>.<br>
+                    Validate with <code>xmllint --noout docs/edition.xml</code>.
                 </td>
-                <td class="target-col"><code>COMMENTARY.md</code> ledger updated; TEI XML saved</td>
+                <td class="target-col"><code>EDITION_NOTES.md</code> + validated <code>edition.xml</code></td>
             </tr>
             <tr>
-                <td class="time-col">10:06 &ndash; 10:14<br>(8 mins)</td>
-                <td class="activity-col">Phase 5: Diff &amp; Merge<br>The Best of All Three</td>
+                <td class="time-col">10:09 &ndash; 10:20<br>(11 mins)</td>
+                <td class="activity-col">Phase 5: Synthesis &amp; Live Push<br>Verify Popovers &amp; Weekly Wrap<br><em>Slides 11&ndash;13. Checkpoint at Slide 11.</em></td>
                 <td class="desc-col">
-                    Students diff the manual, deterministic and AI commentaries lemma by lemma and keep the best note for each in <code>commentary_merged.xml</code> (TEI <code>&lt;standOff&gt;</code>, <code>@resp</code> set to the kept source).<br>
-                    Record the source of each kept note (M/D/A) in a Merged column in <code>COMMENTARY.md</code>. Manual is the default, not the winner by fiat; no AI date, name or citation enters the merge unverified.<br>
-                    Run <code>xmllint --noout</code>.
+                    Push to GitHub, open the live GitHub Pages URL, test clicking <code>[1]</code>&ndash;<code>[3]</code> pins, category filter pills, and verify <strong>QA (0)</strong> (zero broken targets, zero unsourced notes).<br>
+                    Confirm Module 11 is due tonight (11:00 PM) and Module 12 is due Fri Dec 4 (11:00 PM). Preview Week 13 (Editorial Declaration, Print Codex PDF, and Archiving).
                 </td>
-                <td class="target-col"><code>commentary_merged.xml</code>; 0 syntax errors</td>
-            </tr>
-            <tr>
-                <td class="time-col">10:14 &ndash; 10:20<br>(6 mins)</td>
-                <td class="activity-col">Phase 6: Synthesis<br>Editorial Agency &amp; Assignment 12 Launch</td>
-                <td class="desc-col">
-                    Summarize the week: manual precision, algorithmic scale, and vetted AI synthesis.<br>
-                    Review the Assignment 12 grading rubric (4+3+3: 40% Ground Truth, 30% TEI Standoff, 30% Comparative Ledger).<br>
-                    Remind students of the due date: Friday, December 4 at 11:00 PM.
-                </td>
-                <td class="target-col">Synthesis complete; Assignment 12 launched</td>
+                <td class="target-col">Live notes &amp; filters working on GitHub Pages</td>
             </tr>
         </tbody>
     </table>
@@ -134,9 +107,9 @@
     <div class="card">
         <h4>Cohort Differentiated Checkpoints</h4>
         <ul>
-            <li><strong>Ace (1791 French Revolutionary Decree):</strong> Prompt for historical context on paper <em>assignats</em>, 5-livre currency shortages, and National Assembly committees; vet French legal terminology (<em>cours forcé</em>) against 18th-century revolutionary usage.</li>
-            <li><strong>Olyvia (1967 Maud Lewis Letter):</strong> Prompt for Digby local history, 1960s painting prices, and correspondent Leonard Kinnear; enforce strict guardrails preventing the model from confusing private mail with commercial art gallery exhibitions.</li>
-            <li><strong>Andromeda (1752 Peace and Friendship Treaty):</strong> Prompt for diplomatic negotiations between Governor Peregrine Hopson and Chief Jean-Baptiste Cope; enforce negative constraints forbidding 21st-century court citations; catch hallucinations regarding non-existent treaty articles.</li>
+            <li><strong>Ace Long (she/her &mdash; 1791 Louis XVI Address, <code>BL Zweig MS 169</code>):</strong> High-value targets in her actual decree: (1) philological note on diplomatic term <em>office</em> (official diplomatic communication/note, Dictionnaire de l'Acad&eacute;mie fran&ccedil;aise); (2) historical note on <em>l'Assembl&eacute;e Nationale</em> (Legislative Assembly seated Oct 1791, <code>wikidata:Q780457</code>, distinct from Constituent Assembly) or <em>l'Electeur de Tr&egrave;ves</em> (<code>wikidata:Q565780</code>, Clemens Wenceslaus of Saxony); (3) intertextual note linking to the December 1791 imperial diplomatic exchange / Braban&ccedil;on assemblies cited in the letter.</li>
+            <li><strong>Andromeda Julian (1752 Treaty Proclamation):</strong> Targets: (1) philological note on <em>Truckhouse</em> or eighteenth-century long-s orthography; (2) historical note on Governor Peregrine Thomas Hopson (<code>wikidata:Q7167799</code>) and Major Jean-Baptiste Cope (<code>wikidata:Q6168886</code>); (3) intertextual note on the explicit reaffirmation of the 1725 Boston treaty.</li>
+            <li><strong>Olyvia Kingston (1967 Maud Lewis Letter):</strong> Targets: (1) philological note on Maritime vernacular forms / preservation policy; (2) historical note on Marshalltown / Digby County (<code>wikidata:Q2630244</code>) and Maud Lewis's arthritis ("crooked" hands); (3) intertextual note connecting her mentioned oxen/cats paintings to surviving works in the Art Gallery of Nova Scotia.</li>
         </ul>
     </div>
 

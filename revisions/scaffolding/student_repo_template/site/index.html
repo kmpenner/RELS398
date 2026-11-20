@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Digital Scholarly Edition Viewer — RELS 398 / ENGL 398</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="edition.css">
+  <script id="edition-config" type="application/json">
+    {
+      "edition": "./data/edition.xml",
+      "view": "diplomatic"
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.0/openseadragon.min.js" defer></script>
+</head>
+<body>
+<div id="app" class="show-entities show-notes" data-view="diplomatic">
+  <header class="topbar">
+    <div class="brand">
+      <h1 id="docTitle">Digital Scholarly Edition</h1>
+      <div class="subtitle" id="docSubtitle">Static TEI P5 + IIIF Web Edition</div>
+    </div>
+    <div class="toolbar">
+      <div class="segmented" role="group" aria-label="Transcription reading mode">
+        <button type="button" id="btnDiplomatic" aria-pressed="true">Diplomatic</button>
+        <button type="button" id="btnRegularized" aria-pressed="false">Regularized</button>
+        <button type="button" id="btnInterlinear" aria-pressed="false">Interlinear</button>
+      </div>
+      <button type="button" class="btn" id="btnToggleTrans">Hide Translation Pane</button>
+      <button type="button" class="btn" id="btnNotes">Notes</button>
+      <button type="button" class="btn" id="btnAbout">About</button>
+      <button type="button" class="btn" id="btnQA">QA</button>
+      <button type="button" class="btn" id="btnFiles">Files</button>
+      <button type="button" class="btn" id="btnPrint">Print / PDF</button>
+    </div>
+  </header>
+
+  <div class="subbar">
+    <div class="toggles">
+      <label><input type="checkbox" id="chkEntities" checked> Entities</label>
+      <label><input type="checkbox" id="chkNotes" checked> Commentary Pins</label>
+      <label><input type="checkbox" id="chkIds"> Show xml:ids</label>
+    </div>
+    <div id="inspectorBar">Click any word, phrase, sentence, or image zone to inspect links and morphology.</div>
+  </div>
+
+  <section class="loader-drawer" id="loaderDrawer" hidden>
+    <div class="loader-grid">
+      <label>Edition or Source TEI (.xml)
+        <input type="file" id="fileSource" accept=".xml">
+      </label>
+      <label>Translation TEI (optional .xml)
+        <input type="file" id="fileTranslation" accept=".xml">
+      </label>
+      <label>Alignment &lt;linkGrp&gt; (optional .xml)
+        <input type="file" id="fileAlignment" accept=".xml">
+      </label>
+      <label>Commentary &lt;standOff&gt; (optional .xml)
+        <input type="file" id="fileCommentary" accept=".xml">
+      </label>
+      <label>Local Facsimile Image (optional)
+        <input type="file" id="fileImage" accept="image/*">
+      </label>
+      <label>Remote IIIF Manifest / info.json URL
+        <div class="loader-actions">
+          <input type="url" id="inputIiifUrl" placeholder="https://.../manifest.json">
+          <button type="button" class="btn-dark" id="btnLoadIiif">Load</button>
+        </div>
+      </label>
+    </div>
+  </section>
+
+  <section id="printFront" aria-hidden="true"></section>
+
+  <main class="workspace" id="workspace">
+    <section class="pane" id="paneFacsimile">
+      <div class="pane-head">
+        <h2>Facsimile Witness</h2>
+        <div class="pane-tools">
+          <button type="button" class="btn-outline" id="btnZoomIn" title="Zoom in">+</button>
+          <button type="button" class="btn-outline" id="btnZoomOut" title="Zoom out">-</button>
+          <button type="button" class="btn-outline" id="btnZoomReset" title="Reset zoom">Reset</button>
+        </div>
+      </div>
+      <div class="pane-body facs-body" id="facsBody">
+        <div id="osdStage" hidden></div>
+        <div id="svgStage" hidden>
+          <div class="svg-transform" id="svgTransform">
+            <img id="facsImg" alt="Manuscript facsimile witness">
+            <svg class="zone-overlay" id="zoneOverlay" preserveAspectRatio="none"></svg>
+          </div>
+        </div>
+        <div class="facs-empty" id="facsEmpty">
+          No facsimile image loaded yet. Declare <code>&lt;facsimile&gt;&lt;surface&gt;&lt;graphic url="..."/&gt;</code> or load a local image / IIIF manifest under <strong>Files</strong>.
+        </div>
+      </div>
+    </section>
+
+    <section class="pane" id="paneSource">
+      <div class="pane-head">
+        <h2>Source Transcription</h2>
+        <span style="font-size:0.75rem;color:#64748b;">Switch Diplomatic / Regularized / Interlinear</span>
+      </div>
+      <div class="pane-body" id="sourceBody"></div>
+      <div class="pane-body" id="interlinearBody" hidden></div>
+    </section>
+
+    <section class="pane" id="paneTranslation">
+      <div class="pane-head">
+        <h2>Aligned Translation</h2>
+        <span style="font-size:0.75rem;color:#64748b;">Word (red) · Segment (green) · Sentence (blue)</span>
+      </div>
+      <div class="pane-body" id="transBody"></div>
+    </section>
+  </main>
+
+  <section id="printAppendix" aria-hidden="true"></section>
+
+  <footer class="statusbar">
+    <span id="statusText">Ready.</span>
+    <span id="statusWarn" class="warn"></span>
+  </footer>
+</div>
+
+<aside class="side-drawer" id="sideDrawer" hidden>
+  <div class="drawer-head">
+    <h3 id="drawerTitle">Details</h3>
+    <button type="button" class="btn" id="btnCloseDrawer">Close</button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+</aside>
+
+<div id="wordPopover" class="wpop" role="dialog" aria-label="Word analysis" hidden></div>
+
+<script src="viewer.js"></script>
+</body>
+</html>

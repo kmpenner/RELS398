@@ -42,36 +42,38 @@ create_banner()
 
 # 2. Learning Objectives
 obj_html = """<div class="card p-3 mb-3 border-info" style="border-left: 5px solid #d97706; background-color: #fffbeb; border-radius: 6px; padding: 1.25rem;">
-    <h4 style="color: #b45309; margin-top: 0;">Module 13: Digital Edition Publication & Archiving — Learning Objectives</h4>
+    <h4 style="color: #b45309; margin-top: 0;">Module 13: Publication III (Apparatus, Review, &amp; Archiving) — Learning Objectives</h4>
     <p>By the end of this module, students will be able to:</p>
     <ul>
-        <li><strong>Formulate</strong> a comprehensive scholarly Editorial Declaration in TEI <code>&lt;editorialDecl&gt;</code>, detailing explicit policies for transcription, normalization, rendering, and named-entity markup.</li>
-        <li><strong>Document and defend</strong> the textual transmission and documentary history of your primary witness within the scholarly introduction.</li>
-        <li><strong>Author</strong> a TEI Processing Model ODD customization, mapping semantic markup to multi-target presentation behaviors (<code>&lt;model&gt;</code>, <code>@behaviour</code>, <code>@predicate</code>).</li>
-        <li><strong>Compile</strong> multi-modal distribution packages (interactive web editions, responsive offline HTML players, and print-ready PDF/A volumes via CSS Paged Media) from a single canonical TEI XML master.</li>
-        <li><strong>Implement</strong> multi-tiered open access licensing (Creative Commons and open source software licenses) and deposit archival edition portfolios according to FAIR data principles with persistent Zenodo DOIs.</li>
+        <li><strong>Formulate</strong> a transparent scholarly introduction (<code>&lt;front&gt;&lt;div type="introduction"&gt;</code>), reproducible Editorial Declaration (<code>&lt;editorialDecl&gt;</code>), and bibliography apparatus (<code>&lt;back&gt;&lt;listBibl&gt;</code>) anchored to single-witness provenance.</li>
+        <li><strong>Compare</strong> major TEI web publication architectures—minimal-computing static GitHub Pages, <code>THREAD3</code> research workbenches, TEI Publisher 10/11 (ODD Processing Model + eXist-db/Jinks), and EVT 3 / EditionCrafter—against sustainability criteria.</li>
+        <li><strong>Compile</strong> multi-modal deliverables (live GitHub Pages site, standalone offline <code>edition_viewer.html</code>, and dual-column Print Codex PDF via CSS <code>@media print</code>) from one canonical TEI master.</li>
+        <li><strong>Audit and peer-review</strong> published digital editions using the viewer's 5-point <strong>QA</strong> gate (<code>dup_ids</code>, <code>dangling</code>, <code>align_coverage</code>, <code>com_checks</code>, <code>model_credit</code>) and adapted <em>Early Modern Digital Review</em> rubric.</li>
+        <li><strong>Package and preserve</strong> FAIR archival releases with explicit Creative Commons / MIT licensing, honest AI provenance logs, SHA-256 <code>CHECKSUMS.txt</code> manifests, and tagged GitHub <code>v1.0.0</code> releases.</li>
     </ul>
 </div>"""
 
 # 3. Readings
 reading_html = """<div class="card p-3 mb-3" style="border-left: 5px solid #c29b38; background-color: #fcfcfd; border-radius: 6px; padding: 1.25rem;">
-    <h4 style="color: #c29b38; margin-top: 0;">Assigned Readings & Foundational Scholarship</h4>
-    <p>Please study the following foundational works on digital edition architecture, transformation pipelines, and long-term preservation:</p>
+    <h4 style="color: #c29b38; margin-top: 0;">Assigned Readings &amp; Foundational Scholarship</h4>
+    <p>Please study the following foundational works on digital scholarly edition design, peer review, and long-term sustainability:</p>
     <ul>
         <li><strong>Sahle, Patrick.</strong> "What is a Digital Scholarly Edition?" In <em>Digital Scholarly Editing: Theories and Practices</em>, ed. M. J. Driscoll and E. Pierazzo, Open Book Publishers, 2016, pp. 19–39.</li>
-        <li><strong>Pierazzo, Elena.</strong> <em>Digital Textual Scholarship: Theories, Methods and Common Practices</em>. Ashgate/Routledge, 2015. Focus on Chapter 4 (Modelling) and Chapter 5 (Publishing).</li>
-        <li><strong>Turska, Magdalena, James Cummings, and Sebastian Rahtz.</strong> "Challenging the Myth of Presentation in 'Pure' TEI: The TEI Processing Model." <em>Journal of the Text Encoding Initiative</em>, Issue 10, 2016.</li>
+        <li><strong>Pierazzo, Elena.</strong> <em>Digital Textual Scholarship: Theories, Methods and Common Practices</em>. Ashgate/Routledge, 2015. Chapters 4 (Modelling) and 5 (Publishing).</li>
+        <li><strong>El Khatib, Randa.</strong> "Drawing Digital Scholarship into the Academic Conversation: The Exigency of <em>Early Modern Digital Review</em>" (Ch. 3). In <em>NTMRS 11</em>, Iter Press, 2023, pp. 55–73 (Open Access).</li>
+        <li><strong>Meneses, Luis.</strong> "Extending the Contribution of Online Digital Projects about the Middle Ages and Renaissance: A Case Study of DEx" (Ch. 8). In <em>NTMRS 11</em>, Iter Press, 2023, pp. 171–188 (Open Access).</li>
+        <li><strong>Hendriksen, Marieke M. A.</strong> "Data That Last: Reflections on Sustainability in Digital Humanities Projects" (Ch. 11). In <em>NTMRS 11</em>, Iter Press, 2023, pp. 245–258 (Open Access).</li>
     </ul>
 </div>"""
 
 # 4. Watch List
 watch_html = """<div class="card p-3 mb-3" style="border-left: 5px solid #d97706; background-color: #fffbeb; border-radius: 6px; padding: 1.25rem;">
-    <h4 style="color: #b45309; margin-top: 0;">Curated Media & Technical Walkthroughs</h4>
-    <p>Review these video demonstrations before completing your workshop assignment:</p>
+    <h4 style="color: #b45309; margin-top: 0;">Curated Media &amp; Technical Walkthroughs</h4>
+    <p>Review these live studio guides before assembling and releasing your Capstone Portfolio:</p>
     <ul>
-        <li><strong>The Final Milestone: Publishing the Digital Edition:</strong> Multi-modal transformation from TEI to Web, Print, and Mobile (24 mins).</li>
-        <li><strong>The TEI Processing Model in Action:</strong> Writing declarative <code>&lt;model&gt;</code> rules and CSS Paged Media pipelines (25 mins).</li>
-        <li><strong>FAIR Data, Persistent DOIs, and Zenodo Archiving:</strong> Ensuring your scholarly edition survives the next century (19 mins).</li>
+        <li><strong>Lesson 13.1 Walkthrough — <code>&lt;front&gt;</code>, <code>&lt;editorialDecl&gt;</code>, <code>&lt;back&gt;</code>, &amp; Print Codex PDF:</strong> Populating the About drawer and exporting dual-column Print-to-PDF editions via <code>@media print</code>.</li>
+        <li><strong>Lesson 13.2 Walkthrough — Comparing Publication Architectures &amp; QA:</strong> Static GitHub Pages vs. <code>THREAD3</code>, TEI Publisher (ODD Processing Model), EVT 3, and EditionCrafter; clearing all 5 QA checks and logging EMDR peer review.</li>
+        <li><strong>Lesson 13.3 Walkthrough — FAIR Packaging &amp; Tagged Releases:</strong> Testing standalone offline HTML fallback, computing SHA-256 <code>CHECKSUMS.txt</code>, and publishing tagged <code>v1.0.0</code> GitHub Releases.</li>
     </ul>
 </div>"""
 

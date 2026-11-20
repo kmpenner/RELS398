@@ -11,13 +11,13 @@
     <div class="header-box">
         <div class="header-title">
             <h2>RELS 398.10 / ENGL 398.10 &middot; Digital Methods for Historical Documents</h2>
-            <h1>Instructor Teaching Plan: Meeting #32 (Lesson 12.2 &mdash; Deterministic Discovery &amp; Linked Web Annotation)</h1>
+            <h1>Instructor Teaching Plan: Meeting #32 (Lesson 12.2 &mdash; Parallel Image Zones, Aligned Translation Sync, &amp; Styling)</h1>
             <div class="meta-badges">
                 <span class="badge">Date: Wednesday, November 25, 2026</span>
                 <span class="badge">Time: 10:30 &ndash; 11:20 AM (50 mins)</span>
                 <span class="badge">Room: MULH 3032</span>
-                <span class="badge">Context: Week 12 (Commentary) &middot; Meeting 2 of 3</span>
-                <span class="badge">Milestone: Text Reuse Detection, W3C Data Model, &amp; JSON-LD Export</span>
+                <span class="badge">Context: Week 12 (Publication II &amp; Commentary) &middot; Meeting 2 of 3</span>
+                <span class="badge">Milestone: 3-Pane Synced Web Edition (Image &harr; Source &harr; Translation)</span>
             </div>
         </div>
     </div>
@@ -25,35 +25,25 @@
     <div class="context-banner">
         <div>
             <strong>PEDAGOGICAL ENTRY STATE AUDIT:</strong><br>
-            Students successfully authored manual commentary notes and encoded them in TEI standoff XML yesterday. They understand the difference between lexical, historical, and intertextual categories. Today they encounter computational text reuse detection and web-native linked annotations. They need reassurance that algorithms propose connections but humans decide their validity.
+            From Lesson 12.1, Ace (she/her) has a 2-pane GitHub Pages site serving her facsimile image beside her Diplomatic/Regularized transcription of <code>BL Zweig MS 169</code>. She also holds her tokenized source, English translation, and reconciled <code>&lt;linkGrp&gt;</code> file from Module 11. Today she wires all three layers together and refines typography and entity styling.
         </div>
         <div>
             <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
-            Each student uses multi-file regex search in VS Code to discover formulaic text reuse across their corpus, evaluates candidate matches against Tuesday's manual notes, and converts one TEI standoff note into a valid W3C Web Annotation in JSON-LD using a resilient <code>TextQuoteSelector</code>.
+            Connect the English translation and <code>&lt;linkGrp&gt;</code> alignment (either embedded inside <code>edition.xml</code> or configured in <code>edition-config</code> JSON), link key paragraphs/clauses to <code>&lt;facsimile&gt;&lt;zone&gt;</code> boxes via <code>@facs</code>, customize CSS display rules in <code>docs/edition.css</code>, and verify zero unresolved <code>#</code> pointers on GitHub Pages.
         </div>
     </div>
 
-    <div class="card">
-        <h4>Walk-in Music (plays as students arrive, before minute 0)</h4>
-        <ul>
-            <li><strong>Talking Heads, &ldquo;Once in a Lifetime&rdquo;</strong> (1980, Sire Records). The classic new-wave anthem exploring recurring patterns, water flowing underground, and recognizing systemic repetition.</li>
-            <li><strong>Pedagogical connection:</strong> <em>&ldquo;Same as it ever was.&rdquo;</em> When you analyze historical legal treaties and decrees, you discover that governments reuse identical formulas across centuries.</li>
-            <li><strong>Springboard at minute 0:</strong> &ldquo;David Byrne sang 'Same as it ever was' about the circular patterns of modern life. Today, we discover that historical scribes and colonial administrators lived by the exact same principle, copying legal boilerplate from treaty to treaty. Today, we use algorithms to surface that hidden text reuse.&rdquo;</li>
-        </ul>
-    </div>
-
     <div class="requirement-callout">
-        <h3>THE WEB ANNOTATION DIRECTIVE: INTEROPERABLE OPEN DATA</h3>
-        <p>A scholarly edition should not remain trapped inside an isolated desktop file. By adopting the W3C Web Annotation Data Model, students publish machine-readable commentary that connects directly to digitized scans in remote archives and museum collections across the globe.</p>
+        <h3>THE SYNCHRONIZATION DIRECTIVE: EVERY LINK AND ZONE MUST RESOLVE</h3>
+        <p>A parallel edition earns reader trust when every anchor clicks smoothly across image, source text, and translation. One typo in a <code>@target="#s1"</code> or <code>@facs="#z_body_p1"</code> pointer silently breaks interaction—so the viewer's status bar and DevTools Console serve as today's gate before pushing.</p>
     </div>
 
     <div class="caution-callout">
         <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
-        <p><strong>1. The human gatekeeper:</strong> An algorithmic match is an empirical proposal, not a verified fact; students must audit every match against historical plausibility.<br>
-        <strong>2. Stoplists are mandatory:</strong> Never execute raw text comparison without filtering out high-frequency grammatical stopwords.<br>
-        <strong>3. Tripartite W3C structure:</strong> Every web annotation must contain an Annotation container, a Target, and a Body.<br>
-        <strong>4. Resilient context selectors:</strong> Always include <code>prefix</code> and <code>suffix</code> inside your <code>TextQuoteSelector</code> so notes survive webpage redesigns.<br>
-        <strong>5. Wednesday audit logging:</strong> Record all true positive and false positive discoveries in <code>COMMENTARY.md</code> to benchmark algorithmic performance against Tuesday's ground truth.</p>
+        <p><strong>1. Exact <code>xml:id</code> parity:</strong> Every ID referenced by <code>&lt;link target="#s1 #t1"/&gt;</code> or <code>@facs="#zone"</code> must exist on an element in the loaded edition (status bar shows zero unresolved targets).<br>
+        <strong>2. One color convention:</strong> Preserve semantic link cues—words (red), segments (green), sentences (dashed blue), and image regions (amber boxes).<br>
+        <strong>3. Restraint in entity CSS:</strong> Use subtle underlines and hover provenance cues rather than distracting neon backgrounds.<br>
+        <strong>4. Clean console check:</strong> Verify zero HTTP 404 errors and zero XML parser warnings in browser DevTools (F12).</p>
     </div>
 
     <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
@@ -69,53 +59,49 @@
         </thead>
         <tbody>
             <tr>
-                <td class="time-col">10:30 &ndash; 10:36<br>(6 mins)</td>
-                <td class="activity-col">Phase 1: Framing<br>Algorithms as Research Accelerators</td>
+                <td class="time-col">10:30 &ndash; 10:35<br>(5 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>From 2 Panes to 3 Synced Panes<br><em>Slides 1&ndash;3.</em></td>
                 <td class="desc-col">
-                    Welcome students. Contrast human memory limits with algorithmic scale.<br>
-                    Explain the mechanics of text reuse: stoplists, TF-IDF rarity weighting, and word proximity distance scoring.
+                    Contrast 2-pane Diplomatic/Image rendering with a full 3-pane edition (Image &harr; Source &harr; Translation).<br>
+                    Compare embedding <code>&lt;div type="translation"&gt;</code> and <code>&lt;standOff&gt;&lt;linkGrp&gt;</code> inside <code>edition.xml</code> vs. multi-file JSON wiring in <code>index.html</code>.
                 </td>
-                <td class="target-col">Orientation to Step 2; deterministic principles framed</td>
+                <td class="target-col">Multi-pane architecture clear</td>
             </tr>
             <tr>
-                <td class="time-col">10:36 &ndash; 10:46<br>(10 mins)</td>
-                <td class="activity-col">Phase 2: Live Demo<br>Regex Text Reuse Search in VS Code</td>
+                <td class="time-col">10:35 &ndash; 10:47<br>(12 mins)</td>
+                <td class="activity-col">Phase 2: Live Demo<br>Linking <code>&lt;linkGrp&gt;</code> &amp; <code>&lt;zone&gt;</code> Boxes<br><em>Slides 4&ndash;7. Checkpoint at Slide 5.</em></td>
                 <td class="desc-col">
-                    Demonstrate on projector: opening multi-file search (<code>Cmd+Shift+F</code>) across the corpus.<br>
-                    Show how to run proximity searches using regex: <code>liberty\s+(?:\w+\s+){1,4}hunting</code>.<br>
-                    Illustrate why algorithms catch verbatim loans but miss paraphrases and synonyms.
+                    Walk through clicking a sentence or word and watching all three panes respond: text alignment + click-for-parsing word popover (<code>.wpop</code> with live dictionary links keyed by <code>@xml:lang</code>—TLFi/Acad&eacute;mie fran&ccedil;aise for French, Wiktionary/OED for English) + Interlinear gloss strip + amber image box.<br>
+                    Slide 5 checkpoint: inspect how a missing <code>#</code> or mismatched ID triggers the status bar and <strong>QA</strong> drawer (<code>dangling</code> / <code>align_coverage</code>), and verify <code>decree.jpg</code> zone coordinates (<code>z_salutation</code>, <code>z_date</code>, <code>z_body_p1</code>).
                 </td>
-                <td class="target-col">Projector demo of multi-file regex discovery</td>
+                <td class="target-col">ID resolution &amp; zone wiring demonstrated</td>
             </tr>
             <tr>
-                <td class="time-col">10:46 &ndash; 10:58<br>(12 mins)</td>
-                <td class="activity-col">Phase 3: Lab A<br>Auditing Text Reuse Candidates</td>
+                <td class="time-col">10:47 &ndash; 10:57<br>(10 mins)</td>
+                <td class="activity-col">Phase 3: Lab A<br>Wire Translation &amp; Alignment<br><em>Slide 8 up.</em></td>
                 <td class="desc-col">
-                    Students execute regex searches across their project files and related historical sources.<br>
-                    Students filter matches through the three evaluative gates (plausibility, coincidence, significance).<br>
-                    Instructor circulates to help students classify candidates as True Positives or False Positives.
+                    Ace incorporates her Module 11 translation and reconciled <code>&lt;linkGrp&gt;</code> links into <code>docs/</code> (either merged into <code>docs/edition.xml</code> or configured in <code>docs/index.html</code> <code>edition-config</code>).<br>
+                    Run local preview and resolve any unmatched <code>#</code> IDs flagged in the bottom status strip.
                 </td>
-                <td class="target-col">Audit table logged in <code>COMMENTARY.md</code></td>
+                <td class="target-col">3 panes populated; 0 unresolved links</td>
             </tr>
             <tr>
-                <td class="time-col">10:58 &ndash; 11:12<br>(14 mins)</td>
-                <td class="activity-col">Phase 4: Lab B<br>W3C JSON-LD Annotation Export</td>
+                <td class="time-col">10:57 &ndash; 11:12<br>(15 mins)</td>
+                <td class="activity-col">Phase 4: Lab B<br>Add Image Zones &amp; Tune CSS<br><em>Slides 9&ndash;11. Slide 11 checkpoint at 11:10.</em></td>
                 <td class="desc-col">
-                    Introduce the W3C Web Annotation Data Model (Annotation, Target, Body).<br>
-                    Demonstrate building a <code>TextQuoteSelector</code> with <code>exact</code>, <code>prefix</code>, and <code>suffix</code>.<br>
-                    Students convert one of yesterday's TEI notes into a valid <code>annotation.json</code> file.
+                    Map at least 3 document blocks to <code>&lt;facsimile&gt;&lt;zone&gt;</code> coordinates using <code>@facs="#z_..."</code>; verify two-way click highlight (clicking zone highlights text and vice versa).<br>
+                    Tune <code>docs/edition.css</code> (e.g., entity border colors, line-break clarity, heading scale) and check DevTools Network/Console tabs.
                 </td>
-                <td class="target-col">Valid <code>annotation.json</code> file created</td>
+                <td class="target-col">Zones active; CSS tuned; 0 console errors</td>
             </tr>
             <tr>
                 <td class="time-col">11:12 &ndash; 11:20<br>(8 mins)</td>
-                <td class="activity-col">Phase 5: Synthesis<br>Knowledge Graphs &amp; Friday Setup</td>
+                <td class="activity-col">Phase 5: Synthesis<br>Push Live &amp; Preview Friday<br><em>Slides 12&ndash;13.</em></td>
                 <td class="desc-col">
-                    Show how JSON-LD connects local notes to global knowledge graphs via Wikidata and SPARQL.<br>
-                    Congratulate students on mastering open web standards.<br>
-                    Preview Friday: <em>&ldquo;On Friday, we introduce generative AI models to draft commentary notes, and we audit their output against Tuesday's ground truth.&rdquo;</em>
+                    Commit and push to GitHub; verify the updated 3-pane site on <code>github.io</code>.<br>
+                    Preview Lesson 12.3: <em>&ldquo;On Friday we author three verified scholarly commentary notes and embed them as interactive popovers inside your live edition.&rdquo;</em>
                 </td>
-                <td class="target-col">JSON-LD validated; Friday setup complete</td>
+                <td class="target-col">Updated 3-pane edition live on GitHub Pages</td>
             </tr>
         </tbody>
     </table>
@@ -123,9 +109,9 @@
     <div class="card">
         <h4>Cohort Differentiated Checkpoints</h4>
         <ul>
-            <li><strong>Ace (1791 French Revolutionary Decree):</strong> Focus on identifying shared statutory boilerplate between the 1791 assignat decree and earlier 1789/1790 financial acts; evaluate why exact string search misses paraphrased legal mandates.</li>
-            <li><strong>Olyvia (1967 Maud Lewis Letters):</strong> Focus on identifying formulaic phrasing across Maud Lewis's correspondence (pricing formulas, descriptions of paintings); build a <code>TextQuoteSelector</code> targeting the online image record at the Art Gallery of Nova Scotia.</li>
-            <li><strong>Andromeda (1752 Peace and Friendship Treaty):</strong> Focus on tracing verbatim clauses shared between the 1752 treaty and the 1725 Dummer's Treaty; test how adjusting stoplists filters out noise while isolating substantive trade agreements.</li>
+            <li><strong>Ace Long (she/her &mdash; 1791 Louis XVI Address, <code>BL Zweig MS 169</code>):</strong> Connect <code>decree.jpg</code> zones (<code>z_salutation</code>, <code>z_date</code>, <code>z_body_p1</code>, <code>z_body_p2</code>) to her corresponding paragraphs/sentences; verify that French <code>s</code>/<code>w</code> IDs align cleanly with her English translation in Pane 3 and hover reveals her UPOS/lemma tags.</li>
+            <li><strong>Andromeda Julian (1752 Treaty Proclamation):</strong> Map columns or clauses to image zones on <code>proclamation.jpg</code> and link English/plain-language segments via <code>&lt;linkGrp&gt;</code>.</li>
+            <li><strong>Olyvia Kingston (1967 Maud Lewis Letter):</strong> Map page regions on <code>letter.jpg</code> and align dialect sentences to intralingual reading paraphrases.</li>
         </ul>
     </div>
 

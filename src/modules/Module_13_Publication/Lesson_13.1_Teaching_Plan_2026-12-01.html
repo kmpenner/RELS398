@@ -11,13 +11,13 @@
     <div class="header-box">
         <div class="header-title">
             <h2>RELS 398.10 / ENGL 398.10 &middot; Digital Methods for Historical Documents</h2>
-            <h1>Instructor Teaching Plan: Meeting #34 (Lesson 13.1 &mdash; Formulating Editorial Principles &amp; the Edition Introduction)</h1>
+            <h1>Instructor Teaching Plan: Meeting #34 (Lesson 13.1 &mdash; Publication III: Editorial Principles, &lt;front&gt;/&lt;back&gt;, &amp; Print-to-PDF Codex)</h1>
             <div class="meta-badges">
                 <span class="badge">Date: Tuesday, December 1, 2026</span>
                 <span class="badge">Time: 8:30 &ndash; 9:20 AM (50 mins)</span>
                 <span class="badge">Room: MULH 3032</span>
-                <span class="badge">Context: Week 13 (Publication) &middot; Meeting 1 of 3</span>
-                <span class="badge">Milestone: Editorial Studio Launch, Preface Authoring, &amp; TEI &lt;editorialDecl&gt;</span>
+                <span class="badge">Context: Week 13 (Publication Studio) &middot; Meeting 1 of 3</span>
+                <span class="badge">Milestone: &lt;front&gt;, &lt;editorialDecl&gt;, &lt;back&gt;&lt;listBibl&gt;, &amp; Print PDF Live</span>
             </div>
         </div>
     </div>
@@ -25,35 +25,25 @@
     <div class="context-banner">
         <div>
             <strong>PEDAGOGICAL ENTRY STATE AUDIT:</strong><br>
-            Students have completed all discrete analytical and markup phases: cataloguing (Module 2), facsimile binding (Module 3), transcription (Module 4), reconciliation (Module 5), normalization (Module 6), lemmatization (Module 8), named entities (Module 9), translation alignment (Module 11), and commentary (Module 12). Today they transition from component authoring to portfolio synthesis in our capstone publication studio.
+            From Week 12, Ace Long (she/her) has a live 3-pane static edition on GitHub Pages for Louis XVI's 31 December 1791 address to the Assembl&eacute;e Nationale (<code>BL Zweig MS 169</code>) featuring parallel image zones, Diplomatic/Regularized/Interlinear reading views, aligned English translation, and 3 stand-off commentary notes. Absent students (Andromeda Julian, Olyvia Kingston) work from the same viewer shell on GitHub Pages.
         </div>
         <div>
             <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
-            Each student drafts a comprehensive narrative Editorial Introduction in <code>README.md</code>, populates the machine-actionable TEI <code>&lt;editorialDecl&gt;</code> (with explicit <code>&lt;correction&gt;</code>, <code>&lt;normalization&gt;</code>, and <code>&lt;interpretation&gt;</code> policies), establishes multi-tiered open access licensing in <code>&lt;publicationStmt&gt;</code>, and validates their unified master XML document.
+            Populate TEI <code>&lt;front&gt;&lt;div type="introduction"&gt;</code>, machine-readable <code>&lt;editorialDecl&gt;</code>, <code>&lt;licence&gt;</code> / <code>&lt;respStmt&gt;</code> AI/human attribution, and <code>&lt;back&gt;&lt;listBibl&gt;</code> inside <code>docs/edition.xml</code>; verify both the interactive <strong>About</strong> drawer and Print-to-PDF codex layout (<code>#printFront</code> + <code>#printAppendix</code> via <code>@media print</code>); and validate clean output in the browser <strong>QA</strong> panel.
         </div>
     </div>
 
-    <div class="card">
-        <h4>Walk-in Music (plays as students arrive, before minute 0)</h4>
-        <ul>
-            <li><strong>The Beatles, &ldquo;In My Life&rdquo;</strong> (1965, Parlophone). A reflective look across places, people, and memories from the past.</li>
-            <li><strong>Pedagogical connection:</strong> Assembling a scholarly edition requires reflecting on the entire semester's journey—looking back across every editorial choice and articulating the principles that shaped your work.</li>
-            <li><strong>Springboard at minute 0:</strong> &ldquo;All semester, you have worked as transcribers, codicologists, linguists, and commentators. Today, we enter the capstone publication studio. A digital edition without an introduction is like a library without a catalogue or a house without a front door. Today, you author the gateway to your research, articulating the scholarly principles that will guide readers through your historical witness.&rdquo;</li>
-        </ul>
-    </div>
-
     <div class="requirement-callout">
-        <h3>THE EDITORIAL STUDIO DIRECTIVE: METHODOLOGICAL TRANSPARENCY</h3>
-        <p>A scholarly edition is defined by its transparency. Every regularization, linguistic gloss, and commentary note must be justified by an explicit editorial policy declared in the introduction and encoded in the TEI header.</p>
+        <h3>THE PROVENANCE DIRECTIVE: DECLARE RULES FOR READERS AND CITATION</h3>
+        <p>A public web edition earns scholarly citation only when its introduction, normalization criteria, sources, and licensing are explicit. Because <code>viewer.js</code> renders <code>&lt;front&gt;</code> and <code>&lt;back&gt;&lt;listBibl&gt;</code> automatically in the <strong>About</strong> drawer and the <code>@media print</code> codex stylesheet, authoring your TEI apparatus once serves web readers and print PDF simultaneously.</p>
     </div>
 
     <div class="caution-callout">
         <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
-        <p><strong>1. Single-witness documentary fidelity:</strong> Do not collate phantom witnesses; focus on absolute fidelity to your unique primary artifact.<br>
-        <strong>2. Complete archival coordinates:</strong> The introduction must state the exact repository name, geographic location, and archival call number/shelfmark.<br>
-        <strong>3. Explicit normalization rules:</strong> Do not use vague generalizations; state the specific orthographic rules applied (e.g. 18th-century verb endings, folk phonetic spellings).<br>
-        <strong>4. Transparent computational provenance:</strong> Formally disclose all AI drafting tools and document the human-in-the-loop verification protocol.<br>
-        <strong>5. Multi-tiered open licensing:</strong> Declare explicit Creative Commons licensing (CC BY 4.0 for prose, CC0 for metadata, MIT for scripts).</p>
+        <p><strong>1. Documentary single-witness honesty:</strong> Explain your exact witness shelfmark, folio bounds, and editorial rules without inventing stemmata for unique single-witness holdings.<br>
+        <strong>2. Explicit orthographic rules:</strong> State concrete transformation policies (e.g., long-s / <em>xbre</em> / accent normalization vs. diplomatic line breaks).<br>
+        <strong>3. Attribution &amp; AI credit:</strong> Declare a <code>&lt;respStmt&gt;</code> entry with explicit <code>xml:id</code> targets matching every <code>@resp</code> attribute (checked by the viewer <code>model_credit</code> QA rule).<br>
+        <strong>4. Multi-output parity:</strong> Verify <code>xmllint --noout docs/edition.xml</code> before generating <code>edition_print.pdf</code> via Print / PDF.</p>
     </div>
 
     <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
@@ -69,54 +59,49 @@
         </thead>
         <tbody>
             <tr>
-                <td class="time-col">8:30 &ndash; 8:36<br>(6 mins)</td>
-                <td class="activity-col">Phase 1: Framing<br>Entering the Publication Studio</td>
+                <td class="time-col">8:30 &ndash; 8:35<br>(5 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>From Live Demo to Citable Edition<br><em>Slides 1&ndash;3.</em></td>
                 <td class="desc-col">
-                    Welcome students. Announce the launch of Week 13 Capstone Studio (no three-step cycle).<br>
-                    Review the eight editorial layers uniting into the final edition portfolio.<br>
-                    Explain the twofold introduction: narrative preface for humans and XML metadata for software.
+                    Frame Week 13's Capstone Studio (no 3-step homework cycle). Explain why web publication came first in Week 12 and how Week 13 completes provenance, comparative platform literacy, peer review, and archival preservation.<br>
+                    Preview how <code>&lt;front&gt;</code>, <code>&lt;editorialDecl&gt;</code>, <code>&lt;back&gt;</code>, and <code>@media print</code> transform the student repository into both site and print codex.
                 </td>
-                <td class="target-col">Studio launched; portfolio architecture framed</td>
+                <td class="target-col">Week 13 studio roadmap clear</td>
             </tr>
             <tr>
-                <td class="time-col">8:36 &ndash; 8:46<br>(10 mins)</td>
-                <td class="activity-col">Phase 2: Live Demo<br>Encoding the TEI &lt;editorialDecl&gt;</td>
+                <td class="time-col">8:35 &ndash; 8:46<br>(11 mins)</td>
+                <td class="activity-col">Phase 2: Live Demo<br>Wiring &lt;front&gt;, &lt;editorialDecl&gt;, &lt;back&gt;, &amp; Print CSS<br><em>Slides 4&ndash;7. Checkpoint at Slide 5.</em></td>
                 <td class="desc-col">
-                    Demonstrate on projector: building a complete <code>&lt;editorialDecl&gt;</code> inside VS Code.<br>
-                    Show how to structure <code>&lt;correction&gt;</code>, <code>&lt;normalization&gt;</code>, and <code>&lt;interpretation&gt;</code>.<br>
-                    Illustrate how declaring dictionaries (OED, Académie française) validates linguistic tags.
+                    Demonstrate <code>student_repo_template/site/data/edition.xml</code> in the browser: click <strong>About</strong> to inspect the rendered Editorial Introduction (<code>&lt;front&gt;</code>), witness card, and Bibliography (<code>&lt;back&gt;&lt;listBibl&gt;</code>), then trigger <strong>Print / PDF</strong> to inspect print preview.<br>
+                    Run Slide 5 checkpoint: inspect how an undeclared <code>@resp="#ai"</code> or missing <code>&lt;respStmt&gt;</code> triggers the viewer's <strong>QA</strong> <code>model_credit</code> warning.
                 </td>
-                <td class="target-col">Projector demo of TEI editorial declaration</td>
+                <td class="target-col">Apparatus &amp; print preview demonstrated</td>
             </tr>
             <tr>
-                <td class="time-col">8:46 &ndash; 8:58<br>(12 mins)</td>
-                <td class="activity-col">Phase 3: Lab A<br>Authoring the Narrative Introduction</td>
+                <td class="time-col">8:46 &ndash; 8:57<br>(11 mins)</td>
+                <td class="activity-col">Phase 3: Lab A<br>Author &lt;front&gt;, &lt;editorialDecl&gt;, &amp; &lt;back&gt;&lt;listBibl&gt;<br><em>Slide 8 up.</em></td>
                 <td class="desc-col">
-                    Students author the historical and material preface in their project <code>README.md</code>.<br>
-                    Document document context, physical description (paper, ink, seals), and provenance.<br>
-                    Instructor circulates to ensure students provide specific archival shelfmarks.
+                    Ace authors a concise historical context &amp; editorial introduction in <code>&lt;front&gt;&lt;div type="introduction"&gt;</code>, populates <code>&lt;correction&gt;</code>, <code>&lt;normalization&gt;</code>, and <code>&lt;interpretation&gt;</code> in <code>&lt;editorialDecl&gt;</code>, and adds at least two verified sources in <code>&lt;back&gt;&lt;listBibl&gt;</code>.<br>
+                    Verify every <code>@corresp</code> in stand-off notes points cleanly to a declared <code>&lt;bibl xml:id="..."&gt;</code>.
                 </td>
-                <td class="target-col">Narrative preface drafted in <code>README.md</code></td>
+                <td class="target-col">TEI header, preface, &amp; bibliography encoded</td>
             </tr>
             <tr>
-                <td class="time-col">8:58 &ndash; 9:12<br>(14 mins)</td>
-                <td class="activity-col">Phase 4: Lab B<br>TEI Master Assembly &amp; Licensing</td>
+                <td class="time-col">8:57 &ndash; 9:12<br>(15 mins)</td>
+                <td class="activity-col">Phase 4: Lab B<br>AI Attribution, Print PDF Codex, &amp; Push<br><em>Slides 9&ndash;11. Checkpoint at Slide 11 at 9:10.</em></td>
                 <td class="desc-col">
-                    Students integrate header, facsimile, text body, and standoff commentary into <code>edition_master.xml</code>.<br>
-                    Add <code>&lt;publicationStmt&gt;</code> with CC BY 4.0 license and repository metadata.<br>
-                    Execute schema validation in VS Code (verifying 0 syntax errors, valid pointers).
+                    Set CC BY 4.0 <code>&lt;licence&gt;</code> and explicit <code>&lt;respStmt&gt;</code> credits for human &amp; LLM stages; draft repository <code>README.md</code> landing summary; validate <code>xmllint --noout docs/edition.xml</code>.<br>
+                    Click <strong>Print / PDF</strong> in Chrome, switch to Regularized or Diplomatic reading mode, save <code>edition_print.pdf</code> (verifying <code>#printFront</code>, parallel reading text, and <code>#printAppendix</code> notes/bibliography), commit, and push to GitHub.
                 </td>
-                <td class="target-col"><code>edition_master.xml</code> assembled and validated</td>
+                <td class="target-col"><code>edition_print.pdf</code> saved; live About/Print updated</td>
             </tr>
             <tr>
                 <td class="time-col">9:12 &ndash; 9:20<br>(8 mins)</td>
-                <td class="activity-col">Phase 5: Synthesis<br>Peer Review &amp; Wednesday Setup</td>
+                <td class="activity-col">Phase 5: Synthesis<br>Cohort Audit &amp; Wednesday Preview<br><em>Slides 12&ndash;13.</em></td>
                 <td class="desc-col">
-                    Brief peer review: students exchange introductions to verify clarity and shelfmark accuracy.<br>
-                    Review common beginner flaws (vague normalization rules, broken targets).<br>
-                    Preview Wednesday: <em>&ldquo;Tomorrow, we shift from principles to visual design: styling TEI with the Processing Model and CSS.&rdquo;</em>
+                    Verify live <strong>About</strong> drawer and QA attribution pill on Ace's updated GitHub Pages URL.<br>
+                    Preview Lesson 13.2: <em>&ldquo;Tomorrow we inspect our static viewer alongside THREAD3, TEI Publisher, EVT 3, and EditionCrafter, clear every QA warning, and run structured peer review across classmates' live sites.&rdquo;</em>
                 </td>
-                <td class="target-col">Peer check complete; Wednesday setup framed</td>
+                <td class="target-col">Provenance live; Wed peer review prepped</td>
             </tr>
         </tbody>
     </table>
@@ -124,9 +109,9 @@
     <div class="card">
         <h4>Cohort Differentiated Checkpoints</h4>
         <ul>
-            <li><strong>Ace (1791 French Revolutionary Decree):</strong> Introduce the National Assembly legislative crisis, the monetary depreciation of assignats, the 5-livre small denomination decree, Imprimerie Royale typography, and Voltairean spelling regularization.</li>
-            <li><strong>Olyvia (1967 Maud Lewis Letter):</strong> Introduce Maud Lewis's Marshalltown cottage life, \$6.00 roadside painting sales, correspondence with collector Leonard Kinnear, and phonetic folk spelling preservation policies.</li>
-            <li><strong>Andromeda (1752 Peace and Friendship Treaty):</strong> Introduce the Halifax peace negotiations between Mi'kmaw Chief Jean-Baptiste Cope and Governor Peregrine Hopson, treaty truckhouses, hunting/fishing guarantees, and Nova Scotia Archives custody (RG 1 vol 430 no 2).</li>
+            <li><strong>Ace Long (she/her &mdash; 1791 Louis XVI Address, <code>BL Zweig MS 169</code>):</strong> Document British Library Stefan Zweig Collection provenance in <code>&lt;front&gt;</code>, explicit 18th-century French regularization rules (accent restoration, <em>xbre</em> &rarr; <em>d&eacute;cembre</em>, <em>MM.</em> &rarr; <em>Messieurs</em>) in <code>&lt;editorialDecl&gt;</code>, and Legislative Assembly archival/reference entries in <code>&lt;listBibl&gt;</code>.</li>
+            <li><strong>Andromeda Julian (1752 Treaty Proclamation):</strong> State Nova Scotia Archives <code>RG 1 vol. 430 no. 2</code> provenance, long-s (&#x17F; &rarr; s) and hyphenated line-break rules, plus Mi'kmaq treaty historiography references (Wicken; Nova Scotia Archives holdings).</li>
+            <li><strong>Olyvia Kingston (1967 Maud Lewis Letter):</strong> Document Art Gallery of Nova Scotia provenance (<code>Lot 291-11</code>), orthographic normalization without altering vernacular syntax, and Maud Lewis biographical references.</li>
         </ul>
     </div>
 

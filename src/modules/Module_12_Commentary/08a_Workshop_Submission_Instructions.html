@@ -1,10 +1,10 @@
 <div class="card p-3 mb-3" style="padding: 1.25rem;">
     <h4 style="margin-top: 0;">Submission Instructions</h4>
     <ol>
-        <li>Choose a passage of up to <strong>5 sentences</strong> and add <code>xml:id</code> anchors to the words you will comment on.</li>
-        <li><strong>Manual:</strong> write <strong>three notes</strong>: one philological, one historical and one intertextual, each with its source.</li>
-        <li><strong>AI:</strong> ask an AI model to draft notes on the same passage. In a table in <code>COMMENTARY.md</code>, mark each AI note Accept, Revise, Reject or Flag, with a reason; check every fact it states.</li>
-        <li>Encode the notes you keep as <code>commentary_merged.xml</code>: a <code>&lt;standOff&gt;</code> containing <code>&lt;note type="..." target="#id" resp="..."&gt;</code>. Check it is well-formed.</li>
-        <li>Submit <code>COMMENTARY.md</code> (table and a <strong>150&ndash;250 word reflection</strong> at the end of the same file) and <code>commentary_merged.xml</code>.</li>
+        <li>Publish your 3-pane static site inside <code>docs/</code> on GitHub Pages (facsimile <code>&lt;zone&gt;</code> links, Diplomatic/Regularized/Interlinear views, and aligned translation synced cleanly with zero console/network 404s).</li>
+        <li><strong>Manual first:</strong> write <strong>three grounded notes</strong> (one <code>philological</code>, one <code>historical</code>, one <code>intertextual</code>) with primary sources before prompting any LLM.</li>
+        <li><strong>AI verification audit:</strong> run an AI pass under strict negative constraints on the same passage; in <code>EDITION_NOTES.md</code>, record Accept/Revise/Reject verdicts with verification checks plus a <strong>150–250 word reflection</strong>.</li>
+        <li>Merge the three vetted notes into <code>docs/edition.xml</code> inside <code>&lt;standOff&gt;</code> as <code>&lt;note xml:id="..." type="..." target="#..." resp="..."&gt;</code> including verbatim <code>&lt;quote&gt;</code> lemmas and <code>&lt;bibl&gt;</code>/<code>&lt;ref&gt;</code> sources; confirm <code>xmllint --noout docs/edition.xml</code> and zero QA errors.</li>
+        <li>Submit your live GitHub Pages URL, validated <code>docs/edition.xml</code>, and <code>EDITION_NOTES.md</code>.</li>
     </ol>
 </div>
