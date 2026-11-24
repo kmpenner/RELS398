@@ -25,11 +25,11 @@
     <div class="context-banner">
         <div>
             <strong>PEDAGOGICAL ENTRY STATE AUDIT:</strong><br>
-            From Lesson 12.1, Ace (she/her) has a 2-pane GitHub Pages site serving her facsimile image beside her Diplomatic/Regularized transcription of <code>BL Zweig MS 169</code>. She also holds her tokenized source, English translation, and reconciled <code>&lt;linkGrp&gt;</code> file from Module 11. Today she wires all three layers together and refines typography and entity styling.
+            Revised 2026-11-24: Lesson 12.1 stopped after Lab A (slide 8), so Ace (she/her) arrives with <code>docs/</code> staged and <code>edition.xml</code> validated but not yet previewed, pushed or live. Today first finishes the launch; then she has a 2-pane GitHub Pages site serving her facsimile image beside her Diplomatic/Regularized transcription of <code>BL Zweig MS 169</code>. She also holds her tokenized source, English translation, and reconciled <code>&lt;linkGrp&gt;</code> file from Module 11. Today she wires all three layers together and refines typography and entity styling.
         </div>
         <div>
             <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
-            Connect the English translation and <code>&lt;linkGrp&gt;</code> alignment (either embedded inside <code>edition.xml</code> or configured in <code>edition-config</code> JSON), link key paragraphs/clauses to <code>&lt;facsimile&gt;&lt;zone&gt;</code> boxes via <code>@facs</code>, customize CSS display rules in <code>docs/edition.css</code>, and verify zero unresolved <code>#</code> pointers on GitHub Pages.
+            Finish Tuesday&rsquo;s GitHub Pages launch (12.1 slides 9&ndash;11), then connect the English translation and <code>&lt;linkGrp&gt;</code> alignment (either embedded inside <code>edition.xml</code> or configured in <code>edition-config</code> JSON), push before the class ends (image zones via <code>@facs</code> and CSS tuning move to homework before Friday), and verify zero unresolved <code>#</code> pointers on GitHub Pages.
         </div>
     </div>
 
@@ -59,49 +59,60 @@
         </thead>
         <tbody>
             <tr>
-                <td class="time-col">10:30 &ndash; 10:35<br>(5 mins)</td>
-                <td class="activity-col">Phase 1: Framing<br>From 2 Panes to 3 Synced Panes<br><em>Slides 1&ndash;3.</em></td>
+                <td class="time-col">10:30 &ndash; 10:31<br>(1 mins)</td>
+                <td class="activity-col">Phase 0: Re-entry<br><em>Slide 1.</em></td>
                 <td class="desc-col">
-                    Contrast 2-pane Diplomatic/Image rendering with a full 3-pane edition (Image &harr; Source &harr; Translation).<br>
-                    Compare embedding <code>&lt;div type="translation"&gt;</code> and <code>&lt;standOff&gt;&lt;linkGrp&gt;</code> inside <code>edition.xml</code> vs. multi-file JSON wiring in <code>index.html</code>.
+                    Tuesday stopped after Lab A (12.1 slide 8). Today opens with 12.1&rsquo;s Lab B and live check, carried over as slides 2&ndash;4. Anyone who missed Tuesday downloads the <strong>Edition Viewer Starter Kit</strong> from Module 12 on Moodle and copies <code>index.html</code>, <code>edition.css</code> and <code>viewer.js</code> into <code>docs/</code>.
                 </td>
-                <td class="target-col">Multi-pane architecture clear</td>
+                <td class="target-col">Everyone has a staged <code>docs/</code></td>
             </tr>
             <tr>
-                <td class="time-col">10:35 &ndash; 10:47<br>(12 mins)</td>
-                <td class="activity-col">Phase 2: Live Demo<br>Linking <code>&lt;linkGrp&gt;</code> &amp; <code>&lt;zone&gt;</code> Boxes<br><em>Slides 4&ndash;7. Checkpoint at Slide 5.</em></td>
+                <td class="time-col">10:31 &ndash; 10:45<br>(14 mins)</td>
+                <td class="activity-col">Phase 1: Carry-over Lab B (from 12.1)<br>Preview, Push, Enable Pages<br><em>Slide 2 up 10:31&ndash;10:38; Slide 3 up 10:38&ndash;10:45.</em></td>
                 <td class="desc-col">
-                    Walk through clicking a sentence or word and watching all three panes respond: text alignment + click-for-parsing word popover (<code>.wpop</code> with live dictionary links keyed by <code>@xml:lang</code>—TLFi/Acad&eacute;mie fran&ccedil;aise for French, Wiktionary/OED for English) + Interlinear gloss strip + amber image box.<br>
-                    Slide 5 checkpoint: inspect how a missing <code>#</code> or mismatched ID triggers the status bar and <strong>QA</strong> drawer (<code>dangling</code> / <code>align_coverage</code>), and verify <code>decree.jpg</code> zone coordinates (<code>z_salutation</code>, <code>z_date</code>, <code>z_body_p1</code>).
+                    Preview over <code>python3 -m http.server 8799 --bind 127.0.0.1 --directory docs</code> (not <code>file://</code>); check the image and the toolbar. Then Stage &rarr; Commit &rarr; Sync Changes in VS Code; confirm the repo is Public; Settings &rarr; Pages &rarr; <code>main</code> / <code>docs</code>.
                 </td>
-                <td class="target-col">ID resolution &amp; zone wiring demonstrated</td>
+                <td class="target-col">Site deployed from <code>docs/</code></td>
             </tr>
             <tr>
-                <td class="time-col">10:47 &ndash; 10:57<br>(10 mins)</td>
-                <td class="activity-col">Phase 3: Lab A<br>Wire Translation &amp; Alignment<br><em>Slide 8 up.</em></td>
+                <td class="time-col">10:45 &ndash; 10:48<br>(3 mins)</td>
+                <td class="activity-col">Checkpoint: Live Site<br><em>Slide 4.</em></td>
                 <td class="desc-col">
-                    Ace incorporates her Module 11 translation and reconciled <code>&lt;linkGrp&gt;</code> links into <code>docs/</code> (either merged into <code>docs/edition.xml</code> or configured in <code>docs/index.html</code> <code>edition-config</code>).<br>
-                    Run local preview and resolve any unmatched <code>#</code> IDs flagged in the bottom status strip.
+                    Four live checks on the <code>github.io</code> URL (12.1&rsquo;s slide 11). Students record the URL in <code>README.md</code>.
+                </td>
+                <td class="target-col">Every student has a working public URL</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:48 &ndash; 10:55<br>(7 mins)</td>
+                <td class="activity-col">Phase 2: Framing &amp; Checkpoint<br>From 2 Panes to 3<br><em>Slides 5&ndash;6; checkpoint Slide 8 at 10:52.</em></td>
+                <td class="desc-col">
+                    Contrast the 2-pane site with a 3-pane edition; embedded <code>&lt;div type="translation"&gt;</code> + <code>&lt;linkGrp&gt;</code> in <code>edition.xml</code> vs. multi-file JSON in <code>edition-config</code>. Slide 8: how a missing <code>#</code> or mismatched ID shows in the status bar and the QA drawer (<code>dangling</code> / <code>align_coverage</code>). The live demo of <code>.wpop</code> and zones is cut (hidden slides 7, 9, 10).
+                </td>
+                <td class="target-col">Wiring options and the QA gate clear</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:55 &ndash; 11:07<br>(12 mins)</td>
+                <td class="activity-col">Phase 3: Lab A<br>Wire Translation &amp; Alignment<br><em>Slide 11 up.</em></td>
+                <td class="desc-col">
+                    Students bring their Module 11 translation and reconciled <code>&lt;linkGrp&gt;</code> into <code>docs/</code>, preview locally and fix unresolved <code>#</code> IDs until the QA pointer and coverage checks pass.
                 </td>
                 <td class="target-col">3 panes populated; 0 unresolved links</td>
             </tr>
             <tr>
-                <td class="time-col">10:57 &ndash; 11:12<br>(15 mins)</td>
-                <td class="activity-col">Phase 4: Lab B<br>Add Image Zones &amp; Tune CSS<br><em>Slides 9&ndash;11. Slide 11 checkpoint at 11:10.</em></td>
+                <td class="time-col">11:07 &ndash; 11:12<br>(5 mins)</td>
+                <td class="activity-col">Checkpoint &amp; Push<br><em>Slide 14.</em></td>
                 <td class="desc-col">
-                    Map at least 3 document blocks to <code>&lt;facsimile&gt;&lt;zone&gt;</code> coordinates using <code>@facs="#z_..."</code>; verify two-way click highlight (clicking zone highlights text and vice versa).<br>
-                    Tune <code>docs/edition.css</code> (e.g., entity border colors, line-break clarity, heading scale) and check DevTools Network/Console tabs.
+                    Console and Network tabs clean (F12); QA drawer passing; <code>.wpop</code> opens on a word. Push and reload the live URL.
                 </td>
-                <td class="target-col">Zones active; CSS tuned; 0 console errors</td>
+                <td class="target-col">Translation live; 0 console errors</td>
             </tr>
             <tr>
                 <td class="time-col">11:12 &ndash; 11:20<br>(8 mins)</td>
-                <td class="activity-col">Phase 5: Synthesis<br>Push Live &amp; Preview Friday<br><em>Slides 12&ndash;13.</em></td>
+                <td class="activity-col">Phase 4: Cohort Targets &amp; Friday<br><em>Slides 15&ndash;16.</em></td>
                 <td class="desc-col">
-                    Commit and push via VS Code Source Control (Stage &rarr; Commit &rarr; Sync Changes); verify the updated 3-pane site on <code>github.io</code>.<br>
-                    Preview Lesson 12.3: <em>&ldquo;On Friday we author three verified scholarly commentary notes and embed them as interactive popovers inside your live edition.&rdquo;</em>
+                    Cohort targets (slide 15). <strong>Homework before Friday:</strong> map at least 3 <code>&lt;zone&gt;</code> boxes and link them with <code>@facs</code> (the Lab B zone steps are on hidden slides 10 and 12 and in the Lesson 12.2 notes); CSS restraint (hidden slide 13) is optional. Preview Lesson 12.3: three vetted commentary notes embedded in the live site; bring three words, names or puzzles.
                 </td>
-                <td class="target-col">Updated 3-pane edition live on GitHub Pages</td>
+                <td class="target-col">Zones assigned as homework</td>
             </tr>
         </tbody>
     </table>
