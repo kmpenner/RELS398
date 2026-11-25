@@ -710,3 +710,5 @@ Two findings worth carrying forward:
 
 
 
+- 2026-11-25: Lesson 12.2 stopped after slide 11 (Lab A, translation wired). 12.3 deck rebuilt by `scratch/carryover_12.3.py`: 12.2 slide 14 (console checkpoint + push) inserted as slide 2 at 9:30; framing compressed to 9:34-9:46; three `<zone>` boxes with @facs added to the Module 12 bullet on the deadlines slide (slide 13), since 12.2's homework slide was never shown. Plan schedule and entry state updated; Moodle cmid 1440920 replaced (76,025 bytes, verified).
+- 2026-11-25: Module 12 assignment (cmid 1440921) description now lists deliverables, including 3 <zone> boxes linked by @facs; schedule sentence no longer says Wednesday wires zones. Due date unchanged (Dec 4, 11 PM). New read helper shared/scripts/moodle_cdp/getintro.js.

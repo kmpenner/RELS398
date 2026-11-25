@@ -25,7 +25,7 @@
     <div class="context-banner">
         <div>
             <strong>PEDAGOGICAL ENTRY STATE AUDIT:</strong><br>
-            Ace's (she/her) 3-pane static edition is live on GitHub Pages with parallel image zones (added as homework after 12.2, which spent its first 18 minutes finishing 12.1's launch; check them in the opening minutes), Diplomatic/Regularized toggle, and aligned English translation. Today brings scholarly commentary directly into that web interface—keeping commentary concise (3 focused notes rather than an entire abstract week) and grounding every fact against primary historical sources before encoding it.
+            Ace's (she/her) 3-pane static edition is live on GitHub Pages with Diplomatic/Regularized toggle and aligned English translation wired in Lab A of 12.2. Revised 2026-11-25: 12.2 stopped after Lab A (slide 11), so today opens with its console checkpoint and push (slide 2), and the three image zones, never assigned, are now part of the Module 12 deliverable (slide 13). Today brings scholarly commentary directly into that web interface—keeping commentary concise (3 focused notes rather than an entire abstract week) and grounding every fact against primary historical sources before encoding it.
         </div>
         <div>
             <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
@@ -59,25 +59,33 @@
         </thead>
         <tbody>
             <tr>
-                <td class="time-col">9:30 &ndash; 9:35<br>(5 mins)</td>
-                <td class="activity-col">Phase 1: Framing<br>Where Concise Commentary Fits<br><em>Slides 1&ndash;3.</em></td>
+                <td class="time-col">9:30 &ndash; 9:34<br>(4 mins)</td>
+                <td class="activity-col">Phase 0: Carry-over from 12.2<br>Console Checkpoint &amp; Push<br><em>Slide 2. Checkpoint.</em></td>
+                <td class="desc-col">
+                    F12 Console and Network clean, QA drawer passing, popover opens; then Stage, Commit, Sync and reload the github.io URL so the translation pane is live.
+                </td>
+                <td class="target-col">Every site live with translation</td>
+            </tr>
+            <tr>
+                <td class="time-col">9:34 &ndash; 9:38<br>(4 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>Where Concise Commentary Fits<br><em>Slides 1, 3&ndash;4.</em></td>
                 <td class="desc-col">
                     Distinguish the three note types (philological, historical, intertextual) and show how <code>edition_viewer</code> renders <code>&lt;standOff&gt;&lt;note&gt;</code> cleanly in the Notes drawer and beside anchored spans.
                 </td>
                 <td class="target-col">3-category note framework clear</td>
             </tr>
             <tr>
-                <td class="time-col">9:35 &ndash; 9:46<br>(11 mins)</td>
-                <td class="activity-col">Phase 2: Live Demo &amp; Fact Check<br>Stand-Off Syntax &amp; Hallucination Hunt<br><em>Slides 4&ndash;7. Checkpoint at Slide 5.</em></td>
+                <td class="time-col">9:38 &ndash; 9:46<br>(8 mins)</td>
+                <td class="activity-col">Phase 2: Live Demo &amp; Fact Check<br>Stand-Off Syntax &amp; Hallucination Hunt<br><em>Slides 5&ndash;8. Checkpoint at Slide 6.</em></td>
                 <td class="desc-col">
                     Inspect TEI <code>&lt;standOff&gt;&lt;note target="#..." type="..." resp="#editor"&gt;</code> syntax including a verbatim <code>&lt;quote&gt;</code> lemma and a cited <code>&lt;bibl&gt;</code>/<code>&lt;ref&gt;</code> source checked by the viewer's <strong>QA</strong> drawer (<code>com_lemma</code>, <code>unsourced_com</code>).<br>
-                    Slide 5 checkpoint: spot why an AI draft confusing the December 31, 1791 Legislative Assembly (<code>Q780457</code>) with the earlier Constituent Assembly (<code>Q876424</code>), or inventing non-existent treaty clauses, fails editorial audit.
+                    Slide 6 checkpoint: spot why an AI draft confusing the December 31, 1791 Legislative Assembly (<code>Q780457</code>) with the earlier Constituent Assembly (<code>Q876424</code>), or inventing non-existent treaty clauses, fails editorial audit.
                 </td>
                 <td class="target-col">Negative prompt rules &amp; syntax verified</td>
             </tr>
             <tr>
                 <td class="time-col">9:46 &ndash; 9:57<br>(11 mins)</td>
-                <td class="activity-col">Phase 3: Lab A<br>Hand-Author Three Verified Notes<br><em>Slide 8 up.</em></td>
+                <td class="activity-col">Phase 3: Lab A<br>Hand-Author Three Verified Notes<br><em>Slide 9.</em></td>
                 <td class="desc-col">
                     Before prompting any LLM, Ace drafts 3 grounded notes with sources (dictionary, Wikidata/archival record, primary cross-reference) in her manual draft file and picks their target <code>xml:id</code> anchors.
                 </td>
@@ -85,7 +93,7 @@
             </tr>
             <tr>
                 <td class="time-col">9:57 &ndash; 10:09<br>(12 mins)</td>
-                <td class="activity-col">Phase 4: Lab B<br>AI Verification Audit &amp; XML Merge<br><em>Slides 9&ndash;10.</em></td>
+                <td class="activity-col">Phase 4: Lab B<br>AI Verification Audit &amp; XML Merge<br><em>Slides 10&ndash;11.</em></td>
                 <td class="desc-col">
                     Prompt AI under strict negative constraints for candidate notes on the same passage, record Accept / Revise / Reject decisions plus reflection in <code>EDITION_NOTES.md</code>, and merge the 3 final verified <code>&lt;note&gt;</code> elements into <code>docs/edition.xml</code>.<br>
                     Confirm 0 errors in VS Code's XML <strong>Problems</strong> panel.
@@ -94,7 +102,7 @@
             </tr>
             <tr>
                 <td class="time-col">10:09 &ndash; 10:20<br>(11 mins)</td>
-                <td class="activity-col">Phase 5: Synthesis &amp; Live Push<br>Verify Popovers &amp; Weekly Wrap<br><em>Slides 11&ndash;13. Checkpoint at Slide 11.</em></td>
+                <td class="activity-col">Phase 5: Synthesis &amp; Live Push<br>Verify Popovers &amp; Weekly Wrap<br><em>Slides 12&ndash;14. Checkpoint at Slide 12.</em></td>
                 <td class="desc-col">
                     Push to GitHub via VS Code Source Control (Stage &rarr; Commit &rarr; Sync Changes), open the live GitHub Pages URL, test clicking <code>[1]</code>&ndash;<code>[3]</code> pins, category filter pills, and verify <strong>QA (0)</strong> (zero broken targets, zero unsourced notes).<br>
                     Confirm Module 11 is due tonight (11:00 PM) and Module 12 is due Fri Dec 4 (11:00 PM). Preview Week 13 (Editorial Declaration, Print Codex PDF, and Archiving).
