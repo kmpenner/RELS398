@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1300" width="1000" height="1300">
+  <defs>
+    <linearGradient id="parchment" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f6eed9"/>
+      <stop offset="60%" stop-color="#efe2c4"/>
+      <stop offset="100%" stop-color="#e5d3ad"/>
+    </linearGradient>
+    <filter id="paperShadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#5c4828" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+
+  <!-- Parchment background -->
+  <rect x="0" y="0" width="1000" height="1300" fill="#dfd2b4"/>
+  <rect x="28" y="24" width="944" height="1252" rx="6" fill="url(#parchment)" stroke="#bfa87e" stroke-width="2" filter="url(#paperShadow)"/>
+  <line x1="62" y1="45" x2="62" y2="1245" stroke="#c87d7d" stroke-width="1.2" opacity="0.55"/>
+
+  <!-- Archival shelfmark stamp -->
+  <text x="85" y="54" font-family="Georgia, serif" font-size="15" fill="#6b5638" letter-spacing="1.2">
+    NOVA SCOTIA ARCHIVES · RG 1 VOL. 430 NO. 4 (REPRESENTATIVE FACSIMILE EXCERPT, 10 MARCH 1760)
+  </text>
+
+  <!-- Zone 1: Heading -->
+  <g fill="#2b2116" font-family="Georgia, serif">
+    <text x="85" y="108" font-size="25" font-weight="bold">Treaty of Peace &amp; Friendship concluded by His</text>
+    <text x="85" y="146" font-size="24" font-style="italic">Excellency Charles Lawrence Esqr. Govr. of Nova Scotia</text>
+    <text x="85" y="184" font-size="23">with Paul Laurent Chief of the Tribe of LaHave Indians, 10th March 1760.</text>
+  </g>
+  <line x1="85" y1="212" x2="915" y2="212" stroke="#b69f78" stroke-width="1"/>
+
+  <!-- Zone 2: Hunting & Fishing -->
+  <g fill="#2b2116" font-family="Georgia, serif" font-size="22">
+    <text x="85" y="268">It is agreed that the said Tribe of Indians shall not be hindered</text>
+    <text x="85" y="314">from, but have free liberty of Hunting &amp; Fishing as usual</text>
+    <text x="85" y="360">&amp; that if they shall think a Truckhouse needful at the</text>
+    <text x="85" y="406">River Chibenaccadie or any other place of their resort,</text>
+  </g>
+
+  <!-- Zone 3: Truckhouse & Trade Clause -->
+  <g fill="#2b2116" font-family="Georgia, serif" font-size="22">
+    <text x="85" y="512">they shall have the same built &amp; proper Merchandize</text>
+    <text x="85" y="558">lodged therein, to be exchanged for what the Indians shall</text>
+    <text x="85" y="604">have to dispose of, &amp; that in the mean time the said</text>
+    <text x="85" y="650">Indians shall have free liberty to bring for Sale to Halifax</text>
+    <text x="85" y="696">or any other Settlement within this Province, Skins, feathers,</text>
+    <text x="85" y="742">fowl, fish or any other thing they shall have to sell,</text>
+    <text x="85" y="788">where they shall have liberty to dispose thereof to the best Advantage.</text>
+  </g>
+  <line x1="85" y1="836" x2="915" y2="836" stroke="#b69f78" stroke-width="1"/>
+
+  <!-- Zone 4: Signatures & Marks -->
+  <g font-family="Georgia, serif" fill="#2b2116">
+    <!-- Red wax seal -->
+    <circle cx="235" cy="985" r="56" fill="#8b2626" stroke="#5f1717" stroke-width="4"/>
+    <circle cx="235" cy="985" r="44" fill="none" stroke="#b74b4b" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <text x="235" y="991" text-anchor="middle" font-size="16" fill="#f5e3c8" font-weight="bold">L. S.</text>
+    <text x="155" y="1090" font-size="24" font-style="italic">Cha. Lawrence</text>
+    <text x="155" y="1124" font-size="16" fill="#5e4c35">Governor &amp; Commander in Chief</text>
+
+    <!-- Pictographic Clan Totem Mark representation -->
+    <g transform="translate(640,940)" stroke="#2b2116" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 15 45 C 40 20, 85 20, 110 45 C 85 68, 40 68, 15 45 Z"/>
+      <path d="M 110 45 L 140 26 L 132 45 L 140 64 Z"/>
+      <circle cx="38" cy="40" r="3" fill="#2b2116"/>
+      <path d="M 62 24 L 74 4"/>
+      <path d="M 62 66 L 74 86"/>
+    </g>
+    <text x="615" y="1090" font-size="24">Paul Laurent <tspan font-style="italic">(his totem mark)</tspan></text>
+    <text x="615" y="1124" font-size="16" fill="#5e4c35">Chief of the LaHave Mi'kmaq</text>
+  </g>
+</svg>
